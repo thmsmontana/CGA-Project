@@ -22,18 +22,18 @@
 
 using namespace std;
 
-
-Ring::Ring() : angle(0.0) {}
-Ring::Ring(float a) : angle(a) {}
+static unsigned int base; // Displays thge lists base index.
 
 
-void Ring::draw()
-{
+void setupRingLists() {
+	base = glGenLists(1);
+	glListBase(base);
 
+	glNewList(base, GL_COMPILE);
 	float t = 0; // Angle parameter.
 	int i;
 
-	float *coords = (float *)malloc(sizeof(float) * (6 * (SIDES + 1)));
+	float *coords = (float *)malloc(sizeof(float)* (6 * (SIDES + 1)));
 	float *coords_start = coords;
 
 
@@ -42,7 +42,7 @@ void Ring::draw()
 		*(coords++) = RADIUS * cos(t);
 		*(coords++) = RADIUS * sin(t);
 		*(coords++) = 0;
-		
+
 		*(coords++) = RADIUS * cos(t);
 		*(coords++) = RADIUS * sin(t);
 		*(coords++) = -WIDTH;
@@ -60,6 +60,17 @@ void Ring::draw()
 	glVertexPointer(3, GL_FLOAT, 0, coords_start);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 2 * (SIDES + 1));
 	glDisableClientState(GL_VERTEX_ARRAY);
+	glEndList();
+}
+
+
+Ring::Ring() : angle(0.0) {}
+Ring::Ring(float a) : angle(a) {}
+
+
+void Ring::draw()
+{
+	glCallList(base);
 }
 
 float Ring::getWidth() {

@@ -11,3 +11,4 @@ public:
 	float angle;
 };
 
+void setupRingLists();

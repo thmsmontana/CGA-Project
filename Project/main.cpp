@@ -53,8 +53,8 @@ void drawScene(void)
 // Initialization routine.
 void setup(void)
 {
-	//glEnable(GL_DEPTH_TEST); // Enable depth testing.
-
+	glEnable(GL_DEPTH_TEST); // Enable depth testing.
+	setupRingLists();
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 }
 
