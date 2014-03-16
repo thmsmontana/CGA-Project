@@ -27,6 +27,7 @@
 using namespace std;
 
 static float Xangle = 0.0, Yangle = 0.0, Zangle = 0.0; // Angles to rotate hemisphere.
+static float position = 0.0;
 static bool isAnimate = false;
 static float animationPeriod = 0.1;
 static float t = 0.0;
@@ -40,12 +41,16 @@ void drawScene(void)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	glLoadIdentity();
-	glTranslatef(0.0, 0.0, -5.0);
 	glRotatef(Zangle, 0.0, 0.0, 1.0);
 	glRotatef(Yangle, 0.0, 1.0, 0.0);
 	glRotatef(Xangle, 1.0, 0.0, 0.0);
+	
+	glTranslatef(0.0, 1.7, 1.0);
 
+	glPushMatrix();
+	glRotatef(position, 0.0, 0.0, 1.0);
 	tunnel.draw(t);
+	glPopMatrix();
 	glutSwapBuffers();
 
 }
@@ -64,7 +69,7 @@ void animate(int value)
 	cout << "";
 	if (isAnimate)
 	{
-		t += 0.01;
+		t += 0.015;
 	}
 	glutTimerFunc(animationPeriod, animate, 1);
 	glutPostRedisplay();
@@ -77,7 +82,7 @@ void resize(int w, int h)
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(45.0, 1.0, 5.0, 100.0);
+	gluPerspective(40.0, 1.0, 1.0, 200.0);
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -130,6 +135,25 @@ void keyInput(unsigned char key, int x, int y)
 	}
 }
 
+void playerInput(int key, int x, int y)
+{
+	switch (key)
+	{
+	case GLUT_KEY_RIGHT:
+		position -= 1;
+		if (position < 0.0) position += 360.0;
+		glutPostRedisplay();
+		break;
+	case GLUT_KEY_LEFT:
+		position += 1;
+		if (position > 360.0) position -= 360.0;
+		glutPostRedisplay();
+		break;
+	default:
+		break;
+	}
+}
+
 // Routine to output interaction instructions to the C++ window.
 void printInteraction(void)
 {
@@ -142,13 +166,14 @@ int main(int argc, char **argv)
 	printInteraction();
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-	glutInitWindowSize(500, 500);
+	glutInitWindowSize(800, 800);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Game");
 	setup();
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(resize);
 	glutKeyboardFunc(keyInput);
+	glutSpecialFunc(playerInput);
 	glutTimerFunc(animationPeriod, animate, 1);
 	glutMainLoop();
 

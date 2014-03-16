@@ -14,7 +14,8 @@
 #include "Ring.h"
 
 
-#define MAX_RINGS 50
+#define MAX_RINGS 120
+#define ANGLE 0.4
 
 using namespace std;
 Tunnel::Tunnel()
@@ -23,7 +24,7 @@ Tunnel::Tunnel()
 	int i;
 	for (i = 0; i < MAX_RINGS; ++i)
 	{
-		Ring *r = new Ring(1);
+		Ring *r = new Ring(ANGLE);
 		rings.push_back(r);
 	}
 }
@@ -42,7 +43,7 @@ void Tunnel::draw(float t)
 		list <Ring *>::iterator it = rings.begin();
 		free(*it);
 		rings.pop_front();
-		Ring *r = new Ring(1);
+		Ring *r = new Ring(ANGLE);
 		rings.push_back(r);
 	}
 	prevOffset = offset;
