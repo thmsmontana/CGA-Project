@@ -1,10 +1,13 @@
 #pragma once
+
 class Ring
 {
 public:
-	Ring();
-	void draw();
+	Ring(void);
 	virtual ~Ring();
-	float width();
+	Ring(float _angle);
+	void draw();
+	float getWidth();
+	float angle;
 };
 

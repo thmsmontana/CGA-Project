@@ -18,17 +18,20 @@
 #define WIDTH 2.0
 #define RADIUS 3.0
 
-Ring::Ring()
-{
-}
+
+
+using namespace std;
+
+
+Ring::Ring() : angle(0.0) {}
+Ring::Ring(float a) : angle(a) {}
 
 
 void Ring::draw()
 {
+
 	float t = 0; // Angle parameter.
 	int i;
-	glClear(GL_COLOR_BUFFER_BIT);
-	glColor3f(0.0, 0.0, 0.0);
 
 	float *coords = (float *)malloc(sizeof(float) * (6 * (SIDES + 1)));
 	float *coords_start = coords;
@@ -53,14 +56,13 @@ void Ring::draw()
 	*(coords++) = -WIDTH;
 
 
-	glColor3f(1.0, 0.0, 0.0);
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, coords_start);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 2 * (SIDES + 1));
 	glDisableClientState(GL_VERTEX_ARRAY);
 }
 
-float Ring::width() {
+float Ring::getWidth() {
 	return WIDTH;
 }
 
