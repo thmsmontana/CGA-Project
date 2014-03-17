@@ -1,5 +1,4 @@
 #include <list>
-#include "Ring.h"
 
 #pragma once
 class Tunnel
@@ -14,3 +13,18 @@ private:
 	float prevOffset;
 };
 
+#pragma once
+class Ring
+{
+public:
+	Ring(void);
+	virtual ~Ring();
+	Ring(float _angle);
+	void draw();
+	float getWidth();
+	float angle;
+	int obstacle;
+};
+
+
+void setupLists();
