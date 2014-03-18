@@ -15,7 +15,6 @@
 
 #define PI 3.14159265358979324
 
-
 using namespace std;
 
 
@@ -135,6 +134,7 @@ void Tunnel::draw(int c)
 	offset = fmodf(age * SPEED, 2.0);
 	if (offset < prevOffset)
 	{
+
 		list <Ring *>::iterator it = rings.begin();
 		free(*it);
 		rings.pop_front();

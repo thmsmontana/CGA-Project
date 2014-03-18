@@ -32,7 +32,6 @@ Game::~Game()
 {
 }
 
-
 void Game::draw()
 {
 	if (playing)

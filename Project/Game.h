@@ -1,7 +1,7 @@
+
 #include <time.h>
 
 #include "Tunnel.h"
-
 #pragma once
 class Game
 {

@@ -27,7 +27,6 @@ private:
 };
 
 
-
 void setupLists();
 void makeRingList();
 void makeObstacleList();
