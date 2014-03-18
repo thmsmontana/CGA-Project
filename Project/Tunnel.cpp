@@ -22,22 +22,16 @@ static unsigned int base; // Displays the lists base index.
 
 
 
-Tunnel::Tunnel()
+Tunnel::Tunnel() : offset(0.0), prevOffset(0.0), obstacle_proba(0.0), t(0.0)
 {
-	offset = 0;
-	obstacle_proba = 0.0;
-	prevOffset = 0;
 	int i;
 	for (i = 0; i < MAX_RINGS; ++i)
 	{
-		Ring *r = new Ring(ANGLE);
-		rings.push_back(r);
+		pushRing();
 	}
 }
 
-Tunnel::Tunnel(float obstacle_probability) : obstacle_proba(obstacle_probability) {
-	offset = 0;
-	prevOffset = 0;
+Tunnel::Tunnel(float obstacle_probability) :offset(0.0), prevOffset(0.0), obstacle_proba(obstacle_probability), t(0.0) {
 	int i;
 	for (i = 0; i < MAX_RINGS; ++i)
 	{
@@ -50,7 +44,7 @@ Tunnel::~Tunnel()
 
 void Tunnel::pushRing()
 {
-	Ring *r = new Ring(ANGLE);
+	Ring *r = new Ring(angleParams());
 	if (rand() % 10 < 10 * obstacle_proba)
 	{
 		r->setObstacle(rand() % TUNNEL_SIDES);
@@ -79,17 +73,26 @@ void Tunnel::draw(int c)
 		r->draw();
 		glPopMatrix();
 		glTranslatef(0.0, 0.0, -2.0);
-		glRotatef(r->angle, 0.0, 1.0, 0.0);
+		glRotatef(r->angle, r->dirX, r->dirY, 0.0);
 	}
 	glPopMatrix();
 }
 
 
+float *Tunnel::angleParams() {
+	float *values = (float *)malloc(sizeof(float)* 3);
+	values[0] = 0.7 * sin(t);
+	values[1] = cos(cos(t));
+	values[2] = sin(cos(t));
+	t += 0.01;
+	return values;
+}
 
 
 
-Ring::Ring() : angle(0.0), obstacle(-1) {}
-Ring::Ring(float a) : angle(a), obstacle(-1) {}
+
+Ring::Ring() : angle(0.0), dirX(1.0), dirY(0.0), obstacle(-1) {}
+Ring::Ring(float* angleParams) : angle(angleParams[0]), dirX(angleParams[1]), dirY(angleParams[2]), obstacle(-1) {}
 Ring::~Ring() {}
 
 void Ring::draw()

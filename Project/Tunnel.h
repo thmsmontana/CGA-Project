@@ -5,11 +5,12 @@ class Ring
 {
 public:
 	Ring(void);
+	Ring(float* angleParams);
 	virtual ~Ring();
-	Ring(float _angle);
 	void draw();
 	void setObstacle(int obs);
 	float angle;
+	float dirX, dirY;
 private:
 	int obstacle;
 };
@@ -28,6 +29,8 @@ private:
 	std::list <Ring *> rings;
 	float prevOffset;
 	float obstacle_proba;
+	float *angleParams();
+	float t;
 };
 
 
@@ -39,5 +42,4 @@ void makeObstacleList();
 #define SECTION_WIDTH 2.0
 #define RADIUS 3.0
 #define MAX_RINGS 250
-#define ANGLE 0.4
 #define SPEED 20
