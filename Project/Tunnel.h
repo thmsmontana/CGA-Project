@@ -8,8 +8,9 @@ public:
 	virtual ~Ring();
 	Ring(float _angle);
 	void draw();
-	float getWidth();
+	void setObstacle(int obs);
 	float angle;
+private:
 	int obstacle;
 };
 
@@ -18,12 +19,15 @@ class Tunnel
 {
 public:
 	Tunnel();
+	Tunnel(float obstacle_probability);
 	virtual ~Tunnel();
 	void draw(int c);
 private:
+	void pushRing();
 	float offset;
 	std::list <Ring *> rings;
 	float prevOffset;
+	float obstacle_proba;
 };
 
 
@@ -36,4 +40,4 @@ void makeObstacleList();
 #define RADIUS 3.0
 #define MAX_RINGS 250
 #define ANGLE 0.4
-#define SPEED 10
+#define SPEED 20

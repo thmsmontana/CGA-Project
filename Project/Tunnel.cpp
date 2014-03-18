@@ -19,6 +19,99 @@ using namespace std;
 
 
 static unsigned int base; // Displays the lists base index.
+
+
+
+Tunnel::Tunnel()
+{
+	offset = 0;
+	obstacle_proba = 0.0;
+	prevOffset = 0;
+	int i;
+	for (i = 0; i < MAX_RINGS; ++i)
+	{
+		Ring *r = new Ring(ANGLE);
+		rings.push_back(r);
+	}
+}
+
+Tunnel::Tunnel(float obstacle_probability) : obstacle_proba(obstacle_probability) {
+	offset = 0;
+	prevOffset = 0;
+	int i;
+	for (i = 0; i < MAX_RINGS; ++i)
+	{
+		pushRing();
+	}
+}
+Tunnel::~Tunnel()
+{
+}
+
+void Tunnel::pushRing()
+{
+	Ring *r = new Ring(ANGLE);
+	if (rand() % 10 < 10 * obstacle_proba)
+	{
+		r->setObstacle(rand() % TUNNEL_SIDES);
+	}
+	rings.push_back(r);
+}
+
+void Tunnel::draw(int c)
+{
+	float age = 1.0f * c / (float) CLOCKS_PER_SEC;
+	offset = fmodf(age * SPEED, 2.0);
+	if (offset < prevOffset)
+	{
+
+		list <Ring *>::iterator it = rings.begin();
+		free(*it);
+		rings.pop_front();
+		pushRing();
+	}
+	prevOffset = offset;
+	glPushMatrix();
+	for each (Ring *r in rings)
+	{
+		glPushMatrix();
+		glTranslatef(0.0, 0.0, offset);
+		r->draw();
+		glPopMatrix();
+		glTranslatef(0.0, 0.0, -2.0);
+		glRotatef(r->angle, 0.0, 1.0, 0.0);
+	}
+	glPopMatrix();
+}
+
+
+
+
+
+Ring::Ring() : angle(0.0), obstacle(-1) {}
+Ring::Ring(float a) : angle(a), obstacle(-1) {}
+Ring::~Ring() {}
+
+void Ring::draw()
+{
+	glColor3f(0.9, 0.9, 1.0);
+	glCallList(base);
+	if (obstacle != -1) {
+		glPushMatrix();
+		glRotatef(obstacle * 360.0 / TUNNEL_SIDES, 0.0, 0.0, 1.0);
+		glColor3f(1.0, 0.0, 0.0);
+		glCallList(base + 1);
+		glPopMatrix();
+	}
+}
+
+
+void Ring::setObstacle(int obs) {
+	obstacle = obs;
+}
+
+
+
 void setupLists() {
 	base = glGenLists(2);
 	glListBase(base);
@@ -35,7 +128,6 @@ void makeRingList()
 
 	float *coords = (float *)malloc(sizeof(float)* (6 * (TUNNEL_SIDES + 1)));
 	float *coords_start = coords;
-
 
 	for (i = 0; i < TUNNEL_SIDES; ++i)
 	{
@@ -109,68 +201,4 @@ void makeObstacleList()
 	glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_INT, indices);
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glEndList();
-}
-
-
-
-Tunnel::Tunnel()
-{
-	offset = 0;
-	prevOffset = 0;
-	int i;
-	for (i = 0; i < MAX_RINGS; ++i)
-	{
-		Ring *r = new Ring(ANGLE);
-		rings.push_back(r);
-	}
-}
-Tunnel::~Tunnel()
-{
-}
-
-void Tunnel::draw(int c)
-{
-	float age = 1.0f * c / (float) CLOCKS_PER_SEC;
-	offset = fmodf(age * SPEED, 2.0);
-	if (offset < prevOffset)
-	{
-
-		list <Ring *>::iterator it = rings.begin();
-		free(*it);
-		rings.pop_front();
-		Ring *r = new Ring(ANGLE);
-		rings.push_back(r);
-	}
-	prevOffset = offset;
-	glPushMatrix();
-	for each (Ring *r in rings)
-	{
-		glPushMatrix();
-		glTranslatef(0.0, 0.0, offset);
-		r->draw();
-		glPopMatrix();
-		glTranslatef(0.0, 0.0, -2.0);
-		glRotatef(r->angle, 0.0, 1.0, 0.0);
-	}
-	glPopMatrix();
-}
-
-
-
-
-
-Ring::Ring() : angle(0.0) {}
-Ring::Ring(float a) : angle(a) {}
-Ring::~Ring() {}
-
-void Ring::draw()
-{
-	glCallList(base);
-	//if (obstacle != -1) {
-	//	glPushMatrix();
-	//	glRotatef(obstacle * PI * 2 / TUNNEL_SIDES, 0.0, 0.0, 1.0);
-	//	glCallList(base + 1);
-	//	glPopMatrix();
-	//}
-	glCallList(base + 1);
 }

@@ -11,7 +11,7 @@
 #include "Game.h"
 
 
-#define OBSTACLE_PROBABILITY 0.1
+#define OBSTACLE_PROBABILITY 0.4
 #define POSITION_INCREMENT 2
 
 using namespace std;
@@ -21,7 +21,7 @@ Game::Game()
 	age = 0;
 	score = 0;
 	playing = false;
-	tunnel = Tunnel();
+	tunnel = Tunnel(OBSTACLE_PROBABILITY);
 	previous_draw = 0;
 	position = 0.0;
 	setupLists();
