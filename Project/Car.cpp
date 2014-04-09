@@ -17,11 +17,11 @@
 
 #define PI 3.14159265359
 
-#define WHEEL_CIRC_POINTS 20
-#define CARCASS_INTERWHEEL_L_POINTS 25
-#define CARCASS_OVERFLOW_POINTS 5
-#define CARCASS_EXTREMITY_CIRC_POINTS 10
-#define CARCASS_FRONT_POINTS 8
+#define WHEEL_CIRC_POINTS 10
+#define CARCASS_INTERWHEEL_L_POINTS 13
+#define CARCASS_OVERFLOW_POINTS 3
+#define CARCASS_EXTREMITY_CIRC_POINTS 4
+#define CARCASS_FRONT_POINTS 2
 
 #define WHEEL_EXT_RADIUS 5.0
 #define WHEEL_INN_RADIUS 1.5
@@ -195,11 +195,11 @@ void drawFrontHood(float interwheel_l, float interwheel_w, float carcass_height,
 		2,			/* V is 2nd order, ie linear */
 		grid);		/* control points */
 	glMapGrid2f(
-		10, 0.0, 1.0,
-		10, 0.0, 1.0);
+		3, 0.0, 1.0,
+		3, 0.0, 1.0);
 	glColor3f(1.0, 1.0, 1.0);
-	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
-	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
+	if (wireframe) glEvalMesh2(GL_LINE, 0, 3, 0, 3);
+	else glEvalMesh2(GL_FILL, 0, 3, 0, 3);
 
 
 	float angle, x, y, z;
@@ -288,8 +288,8 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 		10, 0.0, 1.0,
 		10, 0.0, 1.0);
 	glColor3f(1.0, 1.0, 1.0);
-	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
-	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
+	if (wireframe) glEvalMesh2(GL_LINE, 0, 3, 0, 3);
+	else glEvalMesh2(GL_FILL, 0, 3, 0, 3);
 	glPopMatrix();
 
 	GLfloat vitreAvant[2][2][3] =
@@ -308,11 +308,11 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 		2,			/* V is 2nd order, ie linear */
 		grid);		/* control points */
 	glMapGrid2f(
-		10, 0.0, 1.0,
-		10, 0.0, 1.0);
+		3, 0.0, 1.0,
+		3, 0.0, 1.0);
 	glColor3f(1.0, 1.0, 1.0);
-	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
-	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
+	if (wireframe) glEvalMesh2(GL_LINE, 0, 3, 0, 3);
+	else glEvalMesh2(GL_FILL, 0, 3, 0, 3);
 
 
 	GLfloat vitreArriere[2][2][3] =
@@ -331,11 +331,11 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 		2,			/* V is 2nd order, ie linear */
 		grid);		/* control points */
 	glMapGrid2f(
-		10, 0.0, 1.0,
-		10, 0.0, 1.0);
+		3, 0.0, 1.0,
+		3, 0.0, 1.0);
 	glColor3f(1.0, 1.0, 1.0);
-	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
-	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
+	if (wireframe) glEvalMesh2(GL_LINE, 0, 3, 0, 3);
+	else glEvalMesh2(GL_FILL, 0, 3, 0, 3);
 
 
 	GLfloat cote[2][2][3] =
@@ -354,11 +354,11 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 		2,			/* V is 2nd order, ie linear */
 		grid);		/* control points */
 	glMapGrid2f(
-		10, 0.0, 1.0,
-		10, 0.0, 1.0);
+		3, 0.0, 1.0,
+		3, 0.0, 1.0);
 	glColor3f(1.0, 1.0, 1.0);
-	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
-	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
+	if (wireframe) glEvalMesh2(GL_LINE, 0, 3, 0, 3);
+	else glEvalMesh2(GL_FILL, 0, 3, 0, 3);
 }
 
 void drawHalfOfTheCar(float t) {

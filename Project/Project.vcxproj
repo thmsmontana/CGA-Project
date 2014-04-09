@@ -78,14 +78,12 @@
   <ItemGroup>
     <ClInclude Include="Car.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Ship.h" />
     <ClInclude Include="Tunnel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Tunnel.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
