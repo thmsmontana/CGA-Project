@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <iostream>
+#include <windows.h>
 
 #ifdef __APPLE__
 #  include <GLUT/glut.h>
@@ -28,6 +29,8 @@ using namespace std;
 static float Xangle = 0.0, Yangle = 0.0, Zangle = 0.0; // Angles to rotate hemisphere.
 static bool isAnimate = false;
 static float animationPeriod = 10;
+static bool rightPressed = false;
+static bool leftPressed = false;
 Game game;
 
 // Drawing routine.
@@ -66,6 +69,13 @@ void animate(int value)
 	cout << "";
 	glutTimerFunc(animationPeriod, animate, 1);
 	glutPostRedisplay();
+
+	if (rightPressed)
+		game.right();
+
+	if (leftPressed)
+		game.left();
+		
 }
 
 
@@ -87,6 +97,16 @@ void keyInput(unsigned char key, int x, int y)
 	{
 	case 27:
 		exit(0);
+		break;
+	case 'd':
+		
+		rightPressed = true;
+		glutPostRedisplay();
+		break;
+
+	case 'q':
+		glutPostRedisplay();
+		leftPressed = true;
 		break;
 	case 'x':
 		Xangle += 5.0;
@@ -127,18 +147,21 @@ void keyInput(unsigned char key, int x, int y)
 	}
 }
 
-void playerInput(int key, int x, int y)
+
+
+void playerInputup(unsigned char key, int x, int y)
 {
 	switch (key)
 	{
-	case GLUT_KEY_RIGHT:
-		game.right();
+	case 'd':
+		rightPressed = false;
 		glutPostRedisplay();
 		break;
-	case GLUT_KEY_LEFT:
-		game.left();
+
+	case 'q':
+		leftPressed = false;
 		glutPostRedisplay();
-		break;
+
 	default:
 		break;
 	}
@@ -149,6 +172,7 @@ void printInteraction(void)
 {
 	cout << "Spacebar to start" << endl;
 }
+
 
 // Main routine.
 int main(int argc, char **argv)
@@ -163,9 +187,11 @@ int main(int argc, char **argv)
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(resize);
 	glutKeyboardFunc(keyInput);
-	glutSpecialFunc(playerInput);
+
+	glutKeyboardUpFunc(playerInputup);
+
 	glutTimerFunc(animationPeriod, animate, 1);
 	glutMainLoop();
-
+	
 	return 0;
 }
