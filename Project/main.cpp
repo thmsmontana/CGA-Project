@@ -171,6 +171,8 @@ void playerInputup(unsigned char key, int x, int y)
 void printInteraction(void)
 {
 	cout << "Spacebar to start" << endl;
+	cout << "Q for left rotation" << endl;
+	cout << "D for right rotation" << endl;
 }
 
 
