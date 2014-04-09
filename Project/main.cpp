@@ -27,7 +27,7 @@ using namespace std;
 
 static float Xangle = 0.0, Yangle = 0.0, Zangle = 0.0; // Angles to rotate hemisphere.
 static bool isAnimate = false;
-static float animationPeriod = 0.1;
+static float animationPeriod = 10;
 Game game;
 
 // Drawing routine.

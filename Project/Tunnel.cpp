@@ -97,7 +97,7 @@ Ring::~Ring() {}
 
 void Ring::draw()
 {
-	glColor3f(0.9, 0.9, 1.0);
+	glColor3f(0.2, 0.3, 1.0);
 	glCallList(base);
 	if (obstacle != -1) {
 		glPushMatrix();
