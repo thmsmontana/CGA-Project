@@ -71,7 +71,12 @@ Car::~Car()
 
 void Car::draw()
 {
+	glPushMatrix();
+	glTranslatef(0.0, -4.0, -5.0);
+	glRotatef(90.0, 0.0, 1.0, 0.0);
+	glScalef(0.06, 0.06, 0.06);
 	glCallList(carListId);
+	glPopMatrix();
 }
 
 
@@ -192,7 +197,7 @@ void drawFrontHood(float interwheel_l, float interwheel_w, float carcass_height,
 	glMapGrid2f(
 		10, 0.0, 1.0,
 		10, 0.0, 1.0);
-	glColor3f(0.0, 0.0, 0.0);
+	glColor3f(1.0, 1.0, 1.0);
 	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
 	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
 
@@ -282,7 +287,7 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 	glMapGrid2f(
 		10, 0.0, 1.0,
 		10, 0.0, 1.0);
-	glColor3f(0.0, 0.0, 0.0);
+	glColor3f(1.0, 1.0, 1.0);
 	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
 	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
 	glPopMatrix();
@@ -305,7 +310,7 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 	glMapGrid2f(
 		10, 0.0, 1.0,
 		10, 0.0, 1.0);
-	glColor3f(0.0, 0.0, 0.0);
+	glColor3f(1.0, 1.0, 1.0);
 	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
 	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
 
@@ -328,7 +333,7 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 	glMapGrid2f(
 		10, 0.0, 1.0,
 		10, 0.0, 1.0);
-	glColor3f(0.0, 0.0, 0.0);
+	glColor3f(1.0, 1.0, 1.0);
 	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
 	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
 
@@ -351,7 +356,7 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 	glMapGrid2f(
 		10, 0.0, 1.0,
 		10, 0.0, 1.0);
-	glColor3f(0.0, 0.0, 0.0);
+	glColor3f(1.0, 1.0, 1.0);
 	if (wireframe) glEvalMesh2(GL_LINE, 0, 10, 0, 10);
 	else glEvalMesh2(GL_FILL, 0, 10, 0, 10);
 }
@@ -362,7 +367,7 @@ void drawHalfOfTheCar(float t) {
 
 
 	// back
-	glColor3f(0.0, 1.0, 0.1);
+	glColor3f(1.0, 1.0, 1.0);
 	drawExtremity(INTERWHEEL_W, INTERWHEEL_L, WHEEL_WIDTH, BACK_OVERFLOW, CARCASS_EXTREMITY_RADIUS, CARCASS_HEIGHT, WHEEL_EXT_RADIUS, WHEEL_GAP, BACK);
 	glPushMatrix();
 
@@ -378,7 +383,7 @@ void drawHalfOfTheCar(float t) {
 	glPopMatrix();
 
 	// middle carcass
-	glColor3f(1.0, 1.0, 0.1);
+	glColor3f(1.0, 1.0, 1.0);
 	glPushMatrix();
 
 	glTranslatef(0.0, 0.0, WHEEL_WIDTH / 2);
@@ -387,7 +392,7 @@ void drawHalfOfTheCar(float t) {
 	glPopMatrix();
 
 	// front
-	glColor3f(1.0, 0.0, 0.0);
+	glColor3f(1.0, 1.0, 1.0);
 	drawExtremity(INTERWHEEL_W, INTERWHEEL_L, WHEEL_WIDTH, FRONT_OVERFLOW, CARCASS_EXTREMITY_RADIUS, CARCASS_HEIGHT, WHEEL_EXT_RADIUS, WHEEL_GAP, FRONT);
 	glPushMatrix();
 

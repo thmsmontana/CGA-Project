@@ -25,6 +25,7 @@ Game::Game()
 	score = 0;
 	playing = false;
 	tunnel = Tunnel(OBSTACLE_PROBABILITY);
+	car = Car();
 	previous_draw = 0;
 	position = 0.0;
 	setupLists();
@@ -45,6 +46,8 @@ void Game::draw()
 	glRotatef(position, 0.0, 0.0, 1.0);
 	tunnel.draw(age);
 	glPopMatrix();
+
+	car.draw();
 
 	previous_draw = clock();
 }

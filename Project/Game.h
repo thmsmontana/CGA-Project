@@ -2,6 +2,7 @@
 #include <time.h>
 
 #include "Tunnel.h"
+#include "Car.h"
 #pragma once
 class Game
 {
@@ -15,6 +16,7 @@ private:
 	bool playing;
 	clock_t previous_draw;
 	Tunnel tunnel;
+	Car car;
 public:
 	void draw();
 	void playPause();
