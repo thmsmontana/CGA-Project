@@ -86,6 +86,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tunnel.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="blaster.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

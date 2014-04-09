@@ -156,6 +156,7 @@ void playerInputup(unsigned char key, int x, int y)
 	case 'd':
 		rightPressed = false;
 		glutPostRedisplay();
+		
 		break;
 
 	case 'q':
@@ -173,6 +174,7 @@ void printInteraction(void)
 	cout << "Spacebar to start" << endl;
 	cout << "Q for left rotation" << endl;
 	cout << "D for right rotation" << endl;
+	
 }
 
 
@@ -189,11 +191,14 @@ int main(int argc, char **argv)
 	glutDisplayFunc(drawScene);
 	glutReshapeFunc(resize);
 	glutKeyboardFunc(keyInput);
-
 	glutKeyboardUpFunc(playerInputup);
-
 	glutTimerFunc(animationPeriod, animate, 1);
+
+	PlaySound(TEXT("music.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
+
 	glutMainLoop();
+
+	
 	
 	return 0;
 }
