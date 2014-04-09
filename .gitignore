@@ -213,3 +213,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+Project/Project.vcxproj
+Project/Project.vcxproj.filters

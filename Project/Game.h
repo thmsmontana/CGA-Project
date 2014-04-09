@@ -21,3 +21,5 @@ public:
 	void left();
 	void right();
 };
+
+void setupLists();

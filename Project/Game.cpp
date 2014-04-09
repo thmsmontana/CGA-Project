@@ -9,12 +9,15 @@
 #endif
 
 #include "Game.h"
+#include "Car.h"
 
 
 #define OBSTACLE_PROBABILITY 0.4
 #define POSITION_INCREMENT 2
 
 using namespace std;
+
+static unsigned int base; // Displays the lists base index.
 
 Game::Game()
 {
@@ -64,4 +67,15 @@ void Game::right()
 {
 	position -= POSITION_INCREMENT;
 	if (position < 0.0) position += 360.0;
+}
+
+
+
+
+
+
+void setupLists()
+{
+	setupTunnelLists();
+	setupShipList();
 }

@@ -34,9 +34,9 @@ private:
 };
 
 
-void setupLists();
-void makeRingList();
-void makeObstacleList();
+void setupTunnelLists();
+void makeRingList(unsigned int listId);
+void makeObstacleList(unsigned int listId);
 
 #define TUNNEL_SIDES 10
 #define SECTION_WIDTH 2.0

@@ -18,7 +18,7 @@
 using namespace std;
 
 
-static unsigned int base; // Displays the lists base index.
+static unsigned int ringListId, obstacleListId;
 
 
 
@@ -98,12 +98,12 @@ Ring::~Ring() {}
 void Ring::draw()
 {
 	glColor3f(0.2, 0.3, 1.0);
-	glCallList(base);
+	glCallList(ringListId);
 	if (obstacle != -1) {
 		glPushMatrix();
 		glRotatef(obstacle * 360.0 / TUNNEL_SIDES, 0.0, 0.0, 1.0);
 		glColor3f(1.0, 0.0, 0.0);
-		glCallList(base + 1);
+		glCallList(obstacleListId);
 		glPopMatrix();
 	}
 }
@@ -115,17 +115,16 @@ void Ring::setObstacle(int obs) {
 
 
 
-void setupLists() {
-	base = glGenLists(2);
-	glListBase(base);
-
-	makeRingList();
-	makeObstacleList();
+void setupTunnelLists() {
+	unsigned int id = glGenLists(2);
+	makeRingList(id++);
+	makeObstacleList(id);
 }
 
-void makeRingList()
+void makeRingList(unsigned int id)
 {
-	glNewList(base, GL_COMPILE);
+	ringListId = id;
+	glNewList(id, GL_COMPILE);
 	float t = 0; // Angle parameter.
 	int i;
 
@@ -158,9 +157,10 @@ void makeRingList()
 	glEndList();
 }
 
-void makeObstacleList()
+void makeObstacleList(unsigned int id)
 {
-	glNewList(base + 1, GL_COMPILE);
+	obstacleListId = id;
+	glNewList(id, GL_COMPILE);
 	float *coords = (float *)malloc(sizeof(float)* (3 * 8));
 	float *coords_start = coords;
 
