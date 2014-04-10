@@ -12,6 +12,7 @@
 #endif
 
 #include "Tunnel.h"
+#include "rgb_hsv.h"
 
 #define PI 3.14159265358979324
 
@@ -19,7 +20,7 @@ using namespace std;
 
 
 static unsigned int ringListId, obstacleListId;
-
+static int angle = 0.0;
 
 
 Tunnel::Tunnel() : offset(0.0), prevOffset(0.0), obstacle_proba(0.0), t(0.0)
@@ -44,7 +45,15 @@ Tunnel::~Tunnel()
 
 void Tunnel::pushRing()
 {
-	Ring *r = new Ring(angleParams());
+	hsv color;
+	color.h = angle;
+	angle += 5 * cos(t/5.0) * cos(t/5.0);
+	if (angle > 360.0) angle -= 360.0;
+	color.s = 1.0;
+	color.v = 1.0;
+	rgb rgbcolor = hsv2rgb(color);
+	float ringColor[] = {rgbcolor.r, rgbcolor.g, rgbcolor.b};
+	Ring *r = new Ring(angleParams(), ringColor);
 	if (rand() % 10 < 10 * obstacle_proba)
 	{
 		r->setObstacle(rand() % TUNNEL_SIDES);
@@ -103,8 +112,10 @@ void Ring::draw()
 	if (obstacle != -1) {
 		glPushMatrix();
 		glRotatef(obstacle * 360.0 / TUNNEL_SIDES, 0.0, 0.0, 1.0);
-		glColor4f(1.0, 0.0, 0.0, 1.0);
+		float emission[] = { 1.0, 0.0, 0.0, 1.0 };
+		glColor4fv(emission);
 		glCallList(obstacleListId);
+
 		glPopMatrix();
 	}
 }

@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClInclude Include="Car.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="rgb_hsv.h" />
     <ClInclude Include="Tunnel.h" />
   </ItemGroup>
   <ItemGroup>

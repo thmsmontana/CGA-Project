@@ -24,6 +24,9 @@
     <ClInclude Include="Car.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="rgb_hsv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

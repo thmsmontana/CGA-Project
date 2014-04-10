@@ -45,7 +45,7 @@ void lighting(void)
 
 	GLfloat lightpos[] = {0.0, 1.0, 1.5, 1.0};
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
-	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.008);
+	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.003);
 
 	//glColorMaterial(GL_FRONT_AND_BACK, GL_DIFFUSE);
 	glColorMaterial(GL_FRONT, GL_DIFFUSE);
