@@ -6,6 +6,7 @@ class Ring
 public:
 	Ring(void);
 	Ring(float* angleParams);
+	Ring(float* angleParams, float* c);
 	virtual ~Ring();
 	void draw();
 	void setObstacle(int obs);
@@ -13,6 +14,7 @@ public:
 	float dirX, dirY;
 private:
 	int obstacle;
+	float r, g, b;
 };
 
 #pragma once
@@ -38,8 +40,8 @@ void setupTunnelLists();
 void makeRingList(unsigned int listId);
 void makeObstacleList(unsigned int listId);
 
-#define TUNNEL_SIDES 10
+#define TUNNEL_SIDES 30
 #define SECTION_WIDTH 2.0
 #define RADIUS 3.0
 #define MAX_RINGS 250
-#define SPEED 20
+#define SPEED 30

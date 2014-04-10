@@ -90,19 +90,20 @@ float *Tunnel::angleParams() {
 
 
 
+Ring::Ring() : angle(0.0), dirX(1.0), dirY(0.0), obstacle(-1), r(0), g(0), b(1) {}
+Ring::Ring(float* angleParams) : angle(angleParams[0]), dirX(angleParams[1]), dirY(angleParams[2]), obstacle(-1), r(0), g(0), b(1) {}
+Ring::Ring(float* angleParams, float* c) : angle(angleParams[0]), dirX(angleParams[1]), dirY(angleParams[2]), obstacle(-1), r(c[0]), g(c[1]), b(c[2]) {}
 
-Ring::Ring() : angle(0.0), dirX(1.0), dirY(0.0), obstacle(-1) {}
-Ring::Ring(float* angleParams) : angle(angleParams[0]), dirX(angleParams[1]), dirY(angleParams[2]), obstacle(-1) {}
 Ring::~Ring() {}
 
 void Ring::draw()
 {
-	glColor3f(0.2, 0.3, 1.0);
+	glColor4f(r, g, b, 1.0);
 	glCallList(ringListId);
 	if (obstacle != -1) {
 		glPushMatrix();
 		glRotatef(obstacle * 360.0 / TUNNEL_SIDES, 0.0, 0.0, 1.0);
-		glColor3f(1.0, 0.0, 0.0);
+		glColor4f(1.0, 0.0, 0.0, 1.0);
 		glCallList(obstacleListId);
 		glPopMatrix();
 	}
@@ -139,7 +140,7 @@ void makeRingList(unsigned int id)
 
 		*(coords++) = RADIUS * cos(t);
 		*(coords++) = RADIUS * sin(t);
-		*(coords++) = -SECTION_WIDTH;
+		*(coords++) = -SECTION_WIDTH * 0.2;
 		t += 2 * PI / TUNNEL_SIDES;
 	}
 	*(coords++) = RADIUS;
@@ -147,7 +148,7 @@ void makeRingList(unsigned int id)
 	*(coords++) = 0;
 	*(coords++) = RADIUS;
 	*(coords++) = 0;
-	*(coords++) = -SECTION_WIDTH;
+	*(coords++) = -SECTION_WIDTH * 0.2;
 
 
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -163,7 +164,7 @@ void makeObstacleList(unsigned int id)
 	glNewList(id, GL_COMPILE);
 	float *coords = (float *)malloc(sizeof(float)* (3 * 8));
 	float *coords_start = coords;
-
+	float angle = 2 * PI / TUNNEL_SIDES;
 	//1
 	*(coords++) = RADIUS;
 	*(coords++) = 0;
@@ -181,20 +182,20 @@ void makeObstacleList(unsigned int id)
 	*(coords++) = 0;
 	*(coords++) = -SECTION_WIDTH;
 	//5
-	*(coords++) = RADIUS * cos(PI * 0.2);
-	*(coords++) = RADIUS * sin(PI * 0.2);
+	*(coords++) = RADIUS * cos(angle);
+	*(coords++) = RADIUS * sin(angle);
 	*(coords++) = 0;
 	//6
-	*(coords++) = RADIUS * cos(PI * 0.2);
-	*(coords++) = RADIUS * sin(PI * 0.2);
+	*(coords++) = RADIUS * cos(angle);
+	*(coords++) = RADIUS * sin(angle);
 	*(coords++) = -SECTION_WIDTH;
 	//7
-	*(coords++) = RADIUS * 0.5 * cos(PI * 0.2);
-	*(coords++) = RADIUS * 0.5 * sin(PI * 0.2);
+	*(coords++) = RADIUS * 0.5 * cos(angle);
+	*(coords++) = RADIUS * 0.5 * sin(angle);
 	*(coords++) = -SECTION_WIDTH;
 	//8
-	*(coords++) = RADIUS * 0.5  * cos(PI * 0.2);
-	*(coords++) = RADIUS * 0.5 * sin(PI * 0.2);
+	*(coords++) = RADIUS * 0.5  * cos(angle);
+	*(coords++) = RADIUS * 0.5 * sin(angle);
 	*(coords++) = 0;
 
 	int indices[14] = { 3, 2, 6, 7, 4, 2, 0, 3, 1, 6, 5, 4, 1, 0 };

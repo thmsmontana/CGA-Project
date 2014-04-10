@@ -33,22 +33,49 @@ static bool rightPressed = false;
 static bool leftPressed = false;
 Game game;
 
+
+
+void lighting(void)
+{
+	glEnable(GL_LIGHTING);
+	float ambient_light[] = { 0.3f, 0.3f, 0.3f, 1.0f };
+	float diffuse_light[] = { 1.0f, 1.0f, 1.0f, 0.0f };
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light);
+	//glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
+
+	GLfloat lightpos[] = {0.0, 1.0, 1.5, 1.0};
+	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
+	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.008);
+
+	//glColorMaterial(GL_FRONT_AND_BACK, GL_DIFFUSE);
+	glColorMaterial(GL_FRONT, GL_DIFFUSE);
+	glEnable(GL_COLOR_MATERIAL);
+	//glEnable(GL_SMOOTH);
+	glEnable(GL_LIGHT0);
+}
+
+
 // Drawing routine.
 void drawScene(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	glLoadIdentity();
 	glRotatef(10.0, -1.0, 0.0, 0.0);
 	glTranslatef(0.0, 2.0, -1.0);
 
+
 	glRotatef(Zangle, 0.0, 0.0, 1.0);
 	glRotatef(Yangle, 0.0, 1.0, 0.0);
 	glRotatef(Xangle, 1.0, 0.0, 0.0);
 
-	glColor3f(1.0, 1.0, 1.0);
+	lighting();
+
+
+
+
 	game.draw();
 
 	glutSwapBuffers();
@@ -59,6 +86,7 @@ void drawScene(void)
 void setup(void)
 {
 	glEnable(GL_DEPTH_TEST); // Enable depth testing.
+
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	game = Game();
 }
@@ -82,7 +110,7 @@ void animate(int value)
 // OpenGL window reshape routine.
 void resize(int w, int h)
 {
-	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+	glViewport(0, 0, (GLsizei)w, (GLsizei)w);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(60.0, 1.0, 1.0, 500.0);
