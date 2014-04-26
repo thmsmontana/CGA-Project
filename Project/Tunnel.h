@@ -45,3 +45,4 @@ void makeObstacleList(unsigned int listId);
 #define RADIUS 3.0
 #define MAX_RINGS 250
 #define SPEED 50
+#define COEF_OBSTACLE 0.7
