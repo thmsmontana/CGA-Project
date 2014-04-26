@@ -12,7 +12,7 @@
 #include "Car.h"
 
 
-#define OBSTACLE_PROBABILITY 0.9
+#define OBSTACLE_PROBABILITY 0.8
 #define POSITION_INCREMENT 2
 
 using namespace std;

@@ -40,7 +40,7 @@ void setupTunnelLists();
 void makeRingList(unsigned int listId);
 void makeObstacleList(unsigned int listId);
 
-#define TUNNEL_SIDES 15
+#define TUNNEL_SIDES 20
 #define SECTION_WIDTH 2.0
 #define RADIUS 3.0
 #define MAX_RINGS 250

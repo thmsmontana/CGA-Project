@@ -38,10 +38,10 @@ Game game;
 void lighting(void)
 {
 	glEnable(GL_LIGHTING);
-	float ambient_light[] = { 0.3f, 0.3f, 0.3f, 1.0f };
+	float ambient_light[] = { 0.0f, 0.0f, 0.2f, 1.0f };
 	float diffuse_light[] = { 1.0f, 1.0f, 1.0f, 0.0f };
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light);
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
+	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
 
 	GLfloat lightpos[] = {0.0, 1.0, 1.5, 1.0};
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
@@ -222,7 +222,7 @@ int main(int argc, char **argv)
 	glutKeyboardUpFunc(playerInputup);
 	glutTimerFunc(animationPeriod, animate, 1);
 
-	PlaySound(TEXT("music.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
+	//PlaySound(TEXT("music.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
 
 	glutMainLoop();
 
