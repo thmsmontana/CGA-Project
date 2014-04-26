@@ -185,11 +185,11 @@ void makeObstacleList(unsigned int id)
 	*(coords++) = 0;
 	*(coords++) = -SECTION_WIDTH;
 	//3
-	*(coords++) = RADIUS * 0.5;
+	*(coords++) = RADIUS * COEF_OBSTACLE;
 	*(coords++) = 0;
 	*(coords++) = 0;
 	//4
-	*(coords++) = RADIUS * 0.5;
+	*(coords++) = RADIUS * COEF_OBSTACLE;
 	*(coords++) = 0;
 	*(coords++) = -SECTION_WIDTH;
 	//5
@@ -201,12 +201,12 @@ void makeObstacleList(unsigned int id)
 	*(coords++) = RADIUS * sin(angle);
 	*(coords++) = -SECTION_WIDTH;
 	//7
-	*(coords++) = RADIUS * 0.5 * cos(angle);
-	*(coords++) = RADIUS * 0.5 * sin(angle);
+	*(coords++) = RADIUS * COEF_OBSTACLE * cos(angle);
+	*(coords++) = RADIUS * COEF_OBSTACLE * sin(angle);
 	*(coords++) = -SECTION_WIDTH;
 	//8
-	*(coords++) = RADIUS * 0.5  * cos(angle);
-	*(coords++) = RADIUS * 0.5 * sin(angle);
+	*(coords++) = RADIUS * COEF_OBSTACLE  * cos(angle);
+	*(coords++) = RADIUS * COEF_OBSTACLE * sin(angle);
 	*(coords++) = 0;
 
 	int indices[14] = { 3, 2, 6, 7, 4, 2, 0, 3, 1, 6, 5, 4, 1, 0 };
