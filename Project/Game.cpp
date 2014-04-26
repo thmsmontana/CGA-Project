@@ -36,12 +36,18 @@ Game::~Game()
 {
 }
 
-void Game::draw()
+void Game::update()
 {
 	if (playing)
 	{
 		if (previous_draw != 0) age += clock() - previous_draw;
 	}
+	if (tunnel.hasObstacleAtPosition(position))
+
+}
+
+void Game::draw()
+{
 
 	glPushMatrix();
 	glRotatef(position, 0.0, 0.0, 1.0);
