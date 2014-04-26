@@ -65,7 +65,7 @@ void Game::playPause()
 void Game::left()
 {
 	position += POSITION_INCREMENT;
-	if (position > 360.0) position -= 360.0;
+	if (position >= 360.0) position -= 360.0;
 }
 
 

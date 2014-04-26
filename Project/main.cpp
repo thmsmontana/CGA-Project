@@ -73,9 +73,6 @@ void drawScene(void)
 
 	lighting();
 
-
-
-
 	game.draw();
 
 	glutSwapBuffers();

@@ -20,3 +20,5 @@ void drawTop(float interwheel_l, float interwheel_w, float wheel_width, float wh
 void drawHalfOfTheCar(float t);
 
 void setupShipList();
+
+#define CAR_ANGULAR_WIDTH 360/TUNNEL_SIDES
