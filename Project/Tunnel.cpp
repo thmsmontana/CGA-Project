@@ -151,7 +151,7 @@ void makeRingList(unsigned int id)
 
 		*(coords++) = RADIUS * cos(t);
 		*(coords++) = RADIUS * sin(t);
-		*(coords++) = -SECTION_WIDTH * 0.2;
+		*(coords++) = -SECTION_WIDTH * 0.05;
 		t += 2 * PI / TUNNEL_SIDES;
 	}
 	*(coords++) = RADIUS;
@@ -159,7 +159,7 @@ void makeRingList(unsigned int id)
 	*(coords++) = 0;
 	*(coords++) = RADIUS;
 	*(coords++) = 0;
-	*(coords++) = -SECTION_WIDTH * 0.2;
+	*(coords++) = -SECTION_WIDTH * 0.05;
 
 
 	glEnableClientState(GL_VERTEX_ARRAY);
