@@ -95,6 +95,7 @@ void animate(int value)
 	glutTimerFunc(animationPeriod, animate, 1);
 	glutPostRedisplay();
 
+	game.update();
 	if (rightPressed)
 		game.right();
 

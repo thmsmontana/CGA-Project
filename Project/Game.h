@@ -22,6 +22,7 @@ public:
 	void playPause();
 	void left();
 	void right();
+	void update();
 };
 
 void setupLists();

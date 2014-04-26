@@ -25,6 +25,7 @@ public:
 	Tunnel(float obstacle_probability);
 	virtual ~Tunnel();
 	void draw(int c);
+	bool hasObstacleAtPosition(int position);
 private:
 	void pushRing();
 	float offset;
