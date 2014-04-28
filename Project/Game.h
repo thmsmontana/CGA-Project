@@ -9,7 +9,14 @@ class Game
 public:
 	Game();
 	virtual ~Game();
+	void draw();
+	void playPause();
+	void left();
+	void right();
+	void update();
+	int getScore();
 private:
+	void handleObstacle();
 	int score;
 	int age;
 	float position;
@@ -17,12 +24,6 @@ private:
 	clock_t previous_draw;
 	Tunnel tunnel;
 	Car car;
-public:
-	void draw();
-	void playPause();
-	void left();
-	void right();
-	void update();
 };
 
 void setupLists();

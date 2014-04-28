@@ -42,13 +42,21 @@ void Game::update()
 	{
 		if (previous_draw != 0) age += clock() - previous_draw;
 	}
-	if (tunnel.hasObstacleAtPosition(position))
-
+	if (tunnel.hasObstacleAtPosition(position)) {
+		handleObstacle();
+	}
 }
+
+
+void Game::handleObstacle() {
+	score -= 10;
+	if (score < 0) score = 0;
+}
+
+
 
 void Game::draw()
 {
-
 	glPushMatrix();
 	glRotatef(position, 0.0, 0.0, 1.0);
 	tunnel.draw(age);
@@ -83,7 +91,10 @@ void Game::right()
 
 
 
-
+int Game::getScore()
+{
+	return score;
+}
 
 
 void setupLists()

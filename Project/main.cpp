@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <iostream>
+#include <string>
 #include <windows.h>
 
 #ifdef __APPLE__
@@ -55,12 +56,14 @@ void lighting(void)
 }
 
 
+
 // Drawing routine.
 void drawScene(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 
 	glLoadIdentity();
 	glRotatef(10.0, -1.0, 0.0, 0.0);
@@ -74,6 +77,7 @@ void drawScene(void)
 	lighting();
 
 	game.draw();
+
 
 	glutSwapBuffers();
 

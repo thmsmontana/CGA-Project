@@ -217,3 +217,9 @@ void makeObstacleList(unsigned int id)
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glEndList();
 }
+
+
+bool Tunnel::hasObstacleAtPosition(float p)
+{
+	return false;
+}
