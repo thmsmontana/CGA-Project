@@ -16,11 +16,12 @@ public:
 	void update();
 	int getScore();
 private:
-	void handleObstacle();
+	void handleCollision();
 	int score;
 	int age;
 	float position;
 	bool playing;
+	int invul;
 	clock_t previous_draw;
 	Tunnel tunnel;
 	Car car;
@@ -31,3 +32,4 @@ void setupLists();
 #define OBSTACLE_PROBABILITY 0.5
 #define POSITION_INCREMENT 2
 #define SHIP_ANGULAR_WIDTH 360/TUNNEL_SIDES
+#define INVUL_TIME 1000

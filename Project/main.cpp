@@ -29,7 +29,7 @@ using namespace std;
 
 static float Xangle = 0.0, Yangle = 0.0, Zangle = 0.0; // Angles to rotate hemisphere.
 static bool isAnimate = false;
-static float animationPeriod = 20;
+static float animationPeriod = 10;
 static bool rightPressed = false;
 static bool leftPressed = false;
 Game game;
@@ -64,11 +64,9 @@ void drawScene(void)
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-
 	glLoadIdentity();
 	glRotatef(10.0, -1.0, 0.0, 0.0);
 	glTranslatef(0.0, 2.0, -1.0);
-
 
 	glRotatef(Zangle, 0.0, 0.0, 1.0);
 	glRotatef(Yangle, 0.0, 1.0, 0.0);
@@ -77,7 +75,6 @@ void drawScene(void)
 	lighting();
 
 	game.draw();
-
 
 	glutSwapBuffers();
 

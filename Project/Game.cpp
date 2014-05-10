@@ -10,6 +10,7 @@
 
 #include "Game.h"
 #include "Car.h"
+#include <windows.h>
 
 
 
@@ -28,6 +29,7 @@ Game::Game()
 	previous_draw = 0;
 	position = 0.0;
 	setupLists();
+	invul = 0;
 }
 
 
@@ -38,16 +40,29 @@ Game::~Game()
 void Game::update()
 {
 	if (playing)
-	{
-		if (previous_draw != 0) age += clock() - previous_draw;
-	}
-	/*if (tunnel.hasObstacleAtPosition(position)) {
-		handleObstacle();
-	}*/
+		if (previous_draw != 0)
+		{
+			age += clock() - previous_draw;
+
+			if (invul <= 0)
+				invul = 0;
+			else
+				invul -= clock() - previous_draw;
+
+		}
+			
+
+	if (tunnel.hasObstacleAtPosition(position) && invul == 0) 
+		handleCollision();
 }
 
 
-void Game::handleObstacle() {
+void Game::handleCollision() 
+{
+	invul = INVUL_TIME;
+
+	//PlaySound(TEXT(collision.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
+
 	score -= 10;
 	if (score < 0) score = 0;
 }
@@ -61,12 +76,9 @@ void Game::draw()
 	tunnel.draw(age);
 	glPopMatrix();
 
-
-	
 	//car.draw();
 
 	previous_draw = clock();
-	
 }
 
 
