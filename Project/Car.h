@@ -21,4 +21,3 @@ void drawHalfOfTheCar(float t);
 
 void setupShipList();
 
-#define CAR_ANGULAR_WIDTH 360/TUNNEL_SIDES

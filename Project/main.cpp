@@ -29,7 +29,7 @@ using namespace std;
 
 static float Xangle = 0.0, Yangle = 0.0, Zangle = 0.0; // Angles to rotate hemisphere.
 static bool isAnimate = false;
-static float animationPeriod = 10;
+static float animationPeriod = 20;
 static bool rightPressed = false;
 static bool leftPressed = false;
 Game game;
@@ -95,7 +95,6 @@ void setup(void)
 // Timer function.
 void animate(int value)
 {
-	cout << "";
 	glutTimerFunc(animationPeriod, animate, 1);
 	glutPostRedisplay();
 

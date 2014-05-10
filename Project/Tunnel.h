@@ -10,6 +10,7 @@ public:
 	virtual ~Ring();
 	void draw();
 	void setObstacle(int obs);
+	int getObstacle();
 	float angle;
 	float dirX, dirY;
 private:

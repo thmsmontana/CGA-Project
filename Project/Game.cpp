@@ -12,8 +12,7 @@
 #include "Car.h"
 
 
-#define OBSTACLE_PROBABILITY 0.5
-#define POSITION_INCREMENT 2
+
 
 using namespace std;
 
@@ -42,9 +41,9 @@ void Game::update()
 	{
 		if (previous_draw != 0) age += clock() - previous_draw;
 	}
-	if (tunnel.hasObstacleAtPosition(position)) {
+	/*if (tunnel.hasObstacleAtPosition(position)) {
 		handleObstacle();
-	}
+	}*/
 }
 
 
@@ -58,15 +57,16 @@ void Game::handleObstacle() {
 void Game::draw()
 {
 	glPushMatrix();
-	glRotatef(position, 0.0, 0.0, 1.0);
+	glRotatef(position + 90, 0.0, 0.0, - 1.0);
 	tunnel.draw(age);
 	glPopMatrix();
 
 
-
+	
 	//car.draw();
 
 	previous_draw = clock();
+	
 }
 
 
@@ -76,14 +76,14 @@ void Game::playPause()
 }
 
 
-void Game::left()
+void Game::right()
 {
 	position += POSITION_INCREMENT;
 	if (position >= 360.0) position -= 360.0;
 }
 
 
-void Game::right()
+void Game::left()
 {
 	position -= POSITION_INCREMENT;
 	if (position < 0.0) position += 360.0;

@@ -27,3 +27,7 @@ private:
 };
 
 void setupLists();
+
+#define OBSTACLE_PROBABILITY 0.5
+#define POSITION_INCREMENT 2
+#define SHIP_ANGULAR_WIDTH 360/TUNNEL_SIDES
