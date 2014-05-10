@@ -10,6 +10,7 @@ public:
 	virtual ~Ring();
 	void draw();
 	void setObstacle(int obs);
+	int getObstacle();
 	float angle;
 	float dirX, dirY;
 private:
@@ -42,7 +43,7 @@ void makeRingList(unsigned int listId);
 void makeObstacleList(unsigned int listId);
 
 #define TUNNEL_SIDES 15
-#define SECTION_WIDTH 2.0
+#define SECTION_WIDTH 10.0
 #define RADIUS 3.0
 #define MAX_RINGS 250
 #define SPEED 50

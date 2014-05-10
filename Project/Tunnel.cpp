@@ -13,6 +13,7 @@
 
 #include "Tunnel.h"
 #include "rgb_hsv.h"
+#include "Game.h"
 
 #define PI 3.14159265358979324
 
@@ -81,7 +82,7 @@ void Tunnel::draw(int c)
 		glTranslatef(0.0, 0.0, offset);
 		r->draw();
 		glPopMatrix();
-		glTranslatef(0.0, 0.0, -2.0);
+		glTranslatef(0.0, 0.0, -SECTION_WIDTH);
 		glRotatef(r->angle, r->dirX, r->dirY, 0.0);
 	}
 	glPopMatrix();
@@ -123,6 +124,10 @@ void Ring::draw()
 
 void Ring::setObstacle(int obs) {
 	obstacle = obs;
+}
+
+int Ring::getObstacle(){
+	return obstacle;
 }
 
 
@@ -221,5 +226,37 @@ void makeObstacleList(unsigned int id)
 
 bool Tunnel::hasObstacleAtPosition(float p)
 {
+	
+	Ring r = *rings.front();
+	int faceObstacle = r.getObstacle();
+
+	if (faceObstacle == -1)
+		return false;
+
+	int leftBoundaryObstacle = OBSTACLE_ANGULAR_WIDTH*faceObstacle;
+	int rightBoundaryObstacle = leftBoundaryObstacle + OBSTACLE_ANGULAR_WIDTH;
+	
+
+
+	int leftBoundaryShip = p - SHIP_ANGULAR_WIDTH / 2;
+	if (leftBoundaryShip < 0)
+		leftBoundaryShip += 360;
+
+	int rightBoundaryShip = p + SHIP_ANGULAR_WIDTH / 2;
+	if (rightBoundaryShip >= 360)
+		rightBoundaryShip -= 360;
+
+	if (leftBoundaryShip >= leftBoundaryObstacle && leftBoundaryShip <= rightBoundaryObstacle)
+		return true;
+
+	if (rightBoundaryShip >= leftBoundaryObstacle && leftBoundaryShip <= rightBoundaryObstacle)
+		return true;
+
+	return false;
+
+	cout << "face obj " << faceObstacle << endl;
+	cout << "interval obstacle" << "[" << leftBoundaryObstacle << " ; " << rightBoundaryObstacle << "]" << endl;
+	cout << "interval vaisseau" << "[" << leftBoundaryShip << " ; " << rightBoundaryShip << "]" << endl;
+	
 	return false;
 }
