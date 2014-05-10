@@ -246,14 +246,18 @@ bool Tunnel::hasObstacleAtPosition(float p)
 	if (rightBoundaryShip >= 360)
 		rightBoundaryShip -= 360;
 
-	if (leftBoundaryShip >= leftBoundaryObstacle && leftBoundaryShip <= rightBoundaryObstacle){
+	if (leftBoundaryShip >= leftBoundaryObstacle && leftBoundaryShip <= rightBoundaryObstacle)
 		return true;
-	}
-		
 
-	if (rightBoundaryShip >= leftBoundaryObstacle && leftBoundaryShip <= rightBoundaryObstacle){
+	if (rightBoundaryShip >= leftBoundaryObstacle && leftBoundaryShip <= rightBoundaryObstacle)
 		return true;
-	}
+
+	return false;
+
+	cout << "face obj " << faceObstacle << endl;
+	cout << "interval obstacle" << "[" << leftBoundaryObstacle << " ; " << rightBoundaryObstacle << "]" << endl;
+	cout << "interval vaisseau" << "[" << leftBoundaryShip << " ; " << rightBoundaryShip << "]" << endl;
+	
 
 	return false;
 
