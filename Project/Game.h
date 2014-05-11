@@ -34,10 +34,10 @@ private:
 void setupLists();
 
 #define OBSTACLE_PROBABILITY 0.5
-#define POSITION_INCREMENT 2
+#define POSITION_INCREMENT 5
 #define SHIP_ANGULAR_WIDTH 360/TUNNEL_SIDES
 #define INVUL_TIME 1000
-#define MAX_HP 3
+#define MAX_HP 5
 
 #define FOVY 60
 #define ASPECT 1

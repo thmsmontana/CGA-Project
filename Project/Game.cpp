@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <time.h>
+#include <windows.h>
+#include <fstream>
 
 #ifdef __APPLE__
 #  include <GLUT/glut.h>
@@ -10,8 +12,7 @@
 
 #include "Game.h"
 #include "Car.h"
-#include <windows.h>
-#include <fstream>
+
 
 
 
@@ -175,7 +176,7 @@ void drawHealthPoints(int hp)
 	glEnable(GL_TEXTURE_2D);
 
 	// position the Health points on the top right corner
-	float yPosHP = 0.38;
+	float yPosHP = 0.58;
 	float xPosHP = 1.63;
 	glTranslatef(xPosHP, -yPosHP, 0.0);
 
@@ -226,7 +227,7 @@ void Game::update()
 		if (previous_draw != 0)
 		{
 			age += clock() - previous_draw;
-
+			score = age / 100;
 			if (invul <= 0)
 				invul = 0;
 			else
@@ -253,11 +254,9 @@ void Game::handleCollision()
 	if (hp == 0)
 	{
 		playing = false;
+		cout << "You have lost. Score: " << score << endl;
+		cout << "To play again, press the spacebar." << endl;
 	}
-		
-
-	score -= 10;
-	if (score < 0) score = 0;
 }
 
 
@@ -282,6 +281,9 @@ void Game::draw()
 void Game::playPause()
 {
 	playing = !playing;
+	if (hp == 0) {
+		hp = MAX_HP;
+	}
 }
 
 

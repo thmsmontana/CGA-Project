@@ -30,7 +30,7 @@ using namespace std;
 
 
 static bool isAnimate = false;
-static float animationPeriod = 10;
+static float animationPeriod = 30;
 static bool rightPressed = false;
 static bool leftPressed = false;
 
@@ -63,7 +63,7 @@ void drawScene(void)
 	glLoadIdentity();
 
 	//glRotatef(10.0, -1.0, 0.0, 0.0);
-	glTranslatef(0.0, 2.0, -1.0);
+	glTranslatef(0.0, 2.2, -1.0);
 
 	lighting();
 
