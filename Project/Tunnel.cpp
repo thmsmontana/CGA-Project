@@ -73,7 +73,7 @@ Tunnel::Tunnel() : offset(0.0), prevOffset(0.0), obstacle_proba(0.0), t(0.0)
 void initTunnel()
 {
 	quad = gluNewQuadric();
-	Image* image = loadBMP("textures/moon.bmp");
+	Image* image = loadBMP(PATH_OBSTACLE_TEXTURE);
 
 	_textureId = loadTexture(image);
 }
@@ -99,9 +99,9 @@ void Tunnel::pushRing()
 	if (angle > 360.0) angle -= 360.0;
 	color.s = 1.0;
 	color.v = 1.0;
-	float alpha = 0.6;
+	
 	rgb rgbcolor = hsv2rgb(color);
-	float ringColor[] = {rgbcolor.r, rgbcolor.g, rgbcolor.b, alpha};
+	float ringColor[] = {rgbcolor.r, rgbcolor.g, rgbcolor.b, ALPHA_RING};
 	Ring *r = new Ring(angleParams(), ringColor);
 	if (rand() % 10 < 10 * obstacle_proba)
 	{
