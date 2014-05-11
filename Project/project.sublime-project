@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "D:\\Documents\\SI4-AIT\\CG\\Project\\CGA Project",
+			"file_include_patterns": ["*.cpp", "*.h", "*.vcxproj",".git*", "*.sublime*", "*.wav"]
+		}
+	]
+}

@@ -1,0 +1,877 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getValue"
+			],
+			[
+				"th",
+				"throws"
+			],
+			[
+				"appleq",
+				"applyEQ"
+			],
+			[
+				"creat",
+				"createExpression"
+			],
+			[
+				"right",
+				"rightOperand"
+			],
+			[
+				"righ",
+				"rightOperand1"
+			],
+			[
+				"thr",
+				"throw"
+			],
+			[
+				"Ex",
+				"Exception"
+			],
+			[
+				"rig",
+				"rightOperand"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 4536,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Project.vcxproj",
+			"settings":
+			{
+				"buffer_size": 4699,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "gl3w_gen.py",
+			"settings":
+			{
+				"buffer_size": 4097,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Tunnel.cpp",
+			"settings":
+			{
+				"buffer_size": 5952,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 135.0,
+		"selected_items":
+		[
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sublimelinter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sublimelin",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"settings",
+				"Preferences: Settings - Default"
+			],
+			[
+				"inspac",
+				"Package Control: Install Package"
+			],
+			[
+				"inpaca",
+				"Package Control: Install Package"
+			],
+			[
+				"inspa",
+				"Package Control: Install Package"
+			],
+			[
+				"inpac",
+				"Package Control: Install Package"
+			],
+			[
+				"arepo",
+				"Package Control: Add Repository"
+			],
+			[
+				"us",
+				"Preferences: Settings - User"
+			],
+			[
+				"insp",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"minm",
+				"View: Toggle Minimap"
+			],
+			[
+				"inpa",
+				"View: Toggle Minimap"
+			],
+			[
+				"tomim",
+				"View: Toggle Minimap"
+			],
+			[
+				"ipa",
+				"Package Control: Install Package"
+			],
+			[
+				"ipack",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"adrepo",
+				"Package Control: Add Repository"
+			],
+			[
+				"ipac",
+				"Package Control: Install Package"
+			],
+			[
+				"super",
+				"Super Ant - List Targets"
+			],
+			[
+				"superant",
+				"Preferences: Super Ant – Settings"
+			],
+			[
+				"supe",
+				"Super Ant - List Targets"
+			],
+			[
+				"sejva",
+				"Set Syntax: Java"
+			],
+			[
+				"supera",
+				"Super Ant - List Targets"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"setjava",
+				"Set Syntax: Java"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"git pul",
+				"Git: Pull"
+			],
+			[
+				"gitpul",
+				"Git: Pull"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"uca",
+				"Convert Case: Upper Case"
+			],
+			[
+				"upco",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"sup",
+				"Super Ant - List Targets"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"case",
+				"Convert Case: Lower Case"
+			],
+			[
+				"sejava",
+				"Set Syntax: Java"
+			],
+			[
+				"seja",
+				"Set Syntax: Java"
+			],
+			[
+				"setja",
+				"Set Syntax: Java"
+			],
+			[
+				"snippetlat",
+				"Snippet: Wrap selection in LaTeX command"
+			],
+			[
+				"begin",
+				"Snippet: \\begin{}…\\end{}"
+			],
+			[
+				"sniplatex",
+				"Snippet: Turn selection into LaTeX environment"
+			],
+			[
+				"latex",
+				"Snippet: Turn selection into LaTeX environment"
+			],
+			[
+				"ant",
+				"Super Ant - List Targets"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"snippetlatex",
+				"Snippet: LaTeXing Option Root File"
+			],
+			[
+				"setlat",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"addrepo",
+				"Package Control: Add Repository"
+			],
+			[
+				"super ant",
+				"Super Ant - List Targets"
+			],
+			[
+				"target",
+				"Super Ant - List Targets"
+			],
+			[
+				"setlate",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"selate",
+				"Set Syntax: LaTeX Memoir"
+			],
+			[
+				"supar",
+				"Preferences: Super Ant – Settings"
+			],
+			[
+				"pac",
+				"Package Control: Add Repository"
+			],
+			[
+				"pacont",
+				"Package Control: Install Package"
+			],
+			[
+				"pacontint",
+				"Package Control: Install Package"
+			],
+			[
+				"pconinst",
+				"Package Control: Install Package"
+			],
+			[
+				"pacinsta",
+				"Package Control: Install Package"
+			],
+			[
+				"paconint",
+				"Package Control: Install Package"
+			],
+			[
+				"ipacka",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"#!/usr/bin/python",
+			"execfile(\"Project/glxw_gen.py\", variables)",
+			"exec(\"Project/glxw_gen.py\", variables)",
+			"ls",
+			"exec(\"glxw_gen.py\", variables)",
+			"exec('glxw_gen.py', variables)",
+			"variables = {}",
+			"glxw_gen.py",
+			"print(sys.version)",
+			"import sys",
+			"4+5",
+			"-v",
+			"version",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Documents/SI4-AIT/CG/Code/loadTextures.cpp",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/gl3w.c",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/glxw_gen.py",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/zfzptmwc.i1d",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/Debug/main.nativecodeanalysis.xml",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/include/GLES3/gl3.h",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/.gitignore",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/Project.opensdf",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/main.cpp",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/Tunnel.cpp",
+		"/C/Users/user/Desktop/glew.c",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/Project.vcxproj",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/Game.cpp",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/d/documents/si4-ait/cg/project/cga project/project/tunnel.cpp",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/project.sublime-project",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/build.xml",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
+		"/D/Documents/SI4-AIT/CG/Project/CGA Project/Project/Car.cpp",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/src/compiler/entities/SymbolTable.java",
+		"/D/Downloads/grammaire.txt",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/src/compiler/entities/IntegerExpression.java",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/cup/Parser.cup",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/jflex/Scanner.jflex",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/src/compiler/entities/Expression.java",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Super Ant/SuperAnt.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/SuperAnt.sublime-settings",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/src/compiler/entities/BooleanExpression.java",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/src/compiler/entities/StringExpression.java",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/src/compiler/entities/FloatExpression.java",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/input.test",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/src/compiler/entities/Type.java",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/src/compiler/entities/Function.java",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/lib/Expression.java",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/.gitignore",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/.gitattributes",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/nbproject/genfiles.properties",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/nbproject/private/config.properties",
+		"/D/Documents/SI4-AIT/Compilers/interpretor/nbproject/project.xml",
+		"/C/Users/user/Desktop/Compiler/src/compiler/entities/Type.java",
+		"/C/Users/user/Desktop/Compiler/build.xml",
+		"/D/Downloads/rapport.txt",
+		"/D/Documents/SI4-AIT/Compilers/Project/cup/Parser.cup",
+		"/D/Documents/SI4-AIT/Compilers/Project/report/report.tex",
+		"/D/Documents/SI4-AIT/Compilers/Project/jflex/Scanner.jflex",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/LaTeXTools/Default (Windows).sublime-keymap",
+		"/D/Documents/SI4-AIT/Compilers/Project/src/compiler/entities/Function.java",
+		"/D/Documents/SI4-AIT/Compilers/Project/src/compiler/entities/Type.java",
+		"/D/Documents/SI4-AIT/Compilers/Project/build.xml",
+		"/D/Documents/SI4-AIT/Compilers/Project/nbproject/private/config.properties",
+		"/D/Documents/SI4-AIT/Compilers/Project/nbproject/project.properties",
+		"/D/Documents/SI4-AIT/Compilers/Project/nbbuild.xml",
+		"/D/Documents/SI4-AIT/Compilers/Project/nbproject/genfiles.properties",
+		"/C/Users/user/Desktop/evasi0n7.exe",
+		"/C/Users/user/Desktop/README.txt"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"buil",
+			"bindbuffer",
+			"#",
+			"init_opt",
+			"block_init",
+			";",
+			"%prec",
+			"package",
+			", ",
+			"Integer",
+			"createExpression(Type.INTEGER",
+			"Type.INTEGER",
+			"Integer",
+			"(int)",
+			"float",
+			"int",
+			"Float",
+			"intValue",
+			"oldFLOAT",
+			"INTEGER",
+			"FLOAT",
+			"oldFLOAT",
+			"INTEGER",
+			"FLOAT",
+			"Type",
+			"return",
+			"PRINT",
+			"RESULT",
+			"tc.",
+			"type",
+			"|   expression:e1 ",
+			"                        System.out.println(\"ERROR: '||' operator can only operate on booleans (line \" + Parser.scanner.getLine() + \")\");\n",
+			"}                :}",
+			"expression:e1 ",
+			"                        TypeChecker tc = TypeChecker.getInstance();\n",
+			"                    if (e != null) {\n                        try {\n                            TypeChecker tc = TypeChecker.getInstance();\n",
+			"TypeChecker.getInstance();",
+			"if (e != null) {\n                        try {\n                            TypeChecker tc = TypeChecker.getInstance();",
+			"                    \n                    if (e != null) {\n                        try {\n                            TypeChecker tc = TypeChecker.getInstance();\n                            tc.checkOperation(\"=\", t, e);\n                        } catch (Exception ex) {\n                            System.out.println(\"ERROR: \" + ex.getMessage() + \" (line \" + Parser.scanner.getLine() + \")\");\n                            System.exit(-1);\n                        }\n                    }",
+			"SymbolTable",
+			"createExpression",
+			"declareSymbol(i, t)",
+			"declares",
+			"declareSymbol",
+			"Type.",
+			"Type",
+			"type",
+			"Type",
+			"STRING",
+			"project",
+			"wrap",
+			"horizon",
+			"));",
+			"private",
+			"getType",
+			"new",
+			"Type",
+			"}",
+			"apply",
+			",",
+			"precedence",
+			"{:[a-zA-Z0-9.;]*:}",
+			"expr_opt",
+			"quilici",
+			"guilhem",
+			"itemize",
+			"]",
+			"texttt",
+			":",
+			"item ",
+			"item",
+			"&",
+			"_",
+			"expr_opt",
+			"tex",
+			"space",
+			"java",
+			";",
+			"minus expr",
+			"minus expore",
+			"type_li",
+			"package",
+			"scroll"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4536,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								550,
+								550
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (SL).tmTheme",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Project.vcxproj",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4699,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1462,
+								1462
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (SL).tmTheme",
+							"syntax": "Packages/MSBuild/MSBuild.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 243.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "gl3w_gen.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4097,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								518,
+								518
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (SL).tmTheme",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Tunnel.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5952,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								139,
+								139
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai Bright (SL).tmTheme",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 273.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 94.0
+	},
+	"project": "project.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"py",
+				"Project\\glxw_gen.py"
+			],
+			[
+				"tune",
+				"Project\\Tunnel.cpp"
+			],
+			[
+				"main",
+				"Project\\main.cpp"
+			],
+			[
+				"gl3.",
+				"Project\\include\\GLES3\\gl3.h"
+			],
+			[
+				"main.c",
+				"Project\\main.cpp"
+			],
+			[
+				"tunne",
+				"Project\\Tunnel.cpp"
+			],
+			[
+				"vc",
+				"Project\\Project.vcxproj"
+			],
+			[
+				"exp",
+				"src\\compiler\\entities\\IntegerExpression.java"
+			],
+			[
+				"express",
+				"src\\compiler\\entities\\IntegerExpression.java"
+			],
+			[
+				"fl",
+				"jflex\\Scanner.jflex"
+			],
+			[
+				"scan",
+				"jflex\\Scanner.jflex"
+			],
+			[
+				"jflex",
+				"jflex\\Scanner.jflex"
+			],
+			[
+				"integer",
+				"src\\compiler\\entities\\IntegerExpression.java"
+			],
+			[
+				"expr",
+				"src\\compiler\\entities\\Expression.java"
+			],
+			[
+				"test",
+				"input.test"
+			],
+			[
+				"sym",
+				"src\\compiler\\entities\\SymbolTable.java"
+			],
+			[
+				"sja",
+				"src\\compiler\\entities\\StringExpression.java"
+			],
+			[
+				"cup",
+				"cup\\Parser.cup"
+			],
+			[
+				"parser",
+				"cup\\Parser.cup"
+			],
+			[
+				"float",
+				"src\\compiler\\entities\\FloatExpression.java"
+			],
+			[
+				"int",
+				"src\\compiler\\entities\\IntegerExpression.java"
+			],
+			[
+				"expo",
+				"src\\compiler\\entities\\Expression.java"
+			],
+			[
+				"typ",
+				"src\\compiler\\entities\\Type.java"
+			],
+			[
+				"giti",
+				".gitignore"
+			],
+			[
+				"repotex",
+				"report\\report.tex"
+			],
+			[
+				"repo",
+				"report\\report.tex"
+			],
+			[
+				"buil",
+				"build.xml"
+			],
+			[
+				".java",
+				"src\\compiler\\entities\\SymbolTable.java"
+			],
+			[
+				"scann",
+				"jflex\\Scanner.jflex"
+			],
+			[
+				"funct",
+				"src\\compiler\\entities\\Function.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 208.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
