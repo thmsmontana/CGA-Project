@@ -3,8 +3,9 @@
 #include <cmath>
 #include <iostream>
 #include <math.h>
-#include <list>
 #include <time.h>
+
+
 #ifdef __APPLE__
 #  include <GLUT/glut.h>
 #else
@@ -68,26 +69,39 @@ void Tunnel::draw(int c)
 	offset = fmodf(age * SPEED, 2.0);
 	if (offset < prevOffset)
 	{
-
 		list <Ring *>::iterator it = rings.begin();
 		free(*it);
 		rings.pop_front();
 		pushRing();
 	}
 	prevOffset = offset;
+	list<Ring *>::iterator begin = rings.begin();
 	glPushMatrix();
-	for each (Ring *r in rings)
-	{
-		glPushMatrix();
-		glTranslatef(0.0, 0.0, offset);
-		r->draw();
-		glPopMatrix();
-		glTranslatef(0.0, 0.0, -SECTION_WIDTH);
-		glRotatef(r->angle, r->dirX, r->dirY, 0.0);
-	}
+	drawRec(offset, &begin);
 	glPopMatrix();
 }
 
+
+void Tunnel::drawRec(float offset, list<Ring *>::iterator *it)
+{
+	Ring *r = *((*it)++);
+	if (*it != rings.end())
+	{
+		glTranslated(0.0, 0.0, -SECTION_WIDTH);
+		glRotated(r->angle, r->dirX, r->dirY, 0.0);
+		
+		drawRec(offset, it);
+
+		// "pop"
+		glRotated(-(r->angle), r->dirX, r->dirY, 0.0);
+		glTranslated(0.0, 0.0, SECTION_WIDTH);
+	}
+
+	glPushMatrix();
+	glTranslatef(0.0, 0.0, offset);
+	r->draw();
+	glPopMatrix();
+}
 
 float *Tunnel::angleParams() {
 	float *values = (float *)malloc(sizeof(float)* 3);
@@ -108,8 +122,8 @@ Ring::~Ring() {}
 
 void Ring::draw()
 {
-	float ringColor[] = { r, g, b, 1.0 };
-	float obstacleColor[] = {1.0, 0.0, 0.0, 1.0};
+	float ringColor[] = { r, g, b, 0.2 };
+	float obstacleColor[] = {1.0, 0.0, 0.0, 0.6};
 	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, ringColor);
 	glCallList(ringListId);
 	if (obstacle != -1) {
@@ -158,7 +172,7 @@ void makeRingList(unsigned int id)
 
 		*(coords++) = RADIUS * cos(t);
 		*(coords++) = RADIUS * sin(t);
-		*(coords++) = -SECTION_WIDTH * 1.05;
+		*(coords++) = -SECTION_WIDTH * 1.0;
 		t += 2 * PI / TUNNEL_SIDES;
 	}
 	*(coords++) = RADIUS;
@@ -166,7 +180,7 @@ void makeRingList(unsigned int id)
 	*(coords++) = 0;
 	*(coords++) = RADIUS;
 	*(coords++) = 0;
-	*(coords++) = -SECTION_WIDTH * 1.05;
+	*(coords++) = -SECTION_WIDTH * 1.0;
 
 
 	glEnableClientState(GL_VERTEX_ARRAY);

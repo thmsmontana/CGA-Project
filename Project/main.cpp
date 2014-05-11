@@ -38,7 +38,7 @@ Game game;
 void lighting(void)
 {
 	glEnable(GL_LIGHTING);
-	float ambient_light[] = { 0.0f, 0.0f, 0.2f, 1.0f };
+	float ambient_light[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 	float diffuse_light[] = { 1.0f, 1.0f, 1.0f, 0.0f };
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
@@ -75,6 +75,9 @@ void drawScene(void)
 void setup(void)
 {
 	glEnable(GL_DEPTH_TEST); // Enable depth testing.
+	
+	glEnable (GL_BLEND);
+	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	game = Game();

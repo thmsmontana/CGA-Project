@@ -1,4 +1,5 @@
 #include <list>
+using namespace std;
 
 #pragma once
 class Ring
@@ -28,6 +29,7 @@ public:
 	void draw(int c);
 	bool hasObstacleAtPosition(float position);
 private:
+	void drawRec(float offset, list<Ring *>::iterator *it);
 	void pushRing();
 	float offset;
 	std::list <Ring *> rings;
