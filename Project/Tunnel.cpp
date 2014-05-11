@@ -53,8 +53,9 @@ void Tunnel::pushRing()
 	if (angle > 360.0) angle -= 360.0;
 	color.s = 1.0;
 	color.v = 1.0;
+	float alpha = 0.4;
 	rgb rgbcolor = hsv2rgb(color);
-	float ringColor[] = {rgbcolor.r, rgbcolor.g, rgbcolor.b};
+	float ringColor[] = {rgbcolor.r, rgbcolor.g, rgbcolor.b, alpha};
 	Ring *r = new Ring(angleParams(), ringColor);
 	if (rand() % 10 < 10 * obstacle_proba)
 	{
@@ -114,15 +115,15 @@ float *Tunnel::angleParams() {
 
 
 
-Ring::Ring() : angle(0.0), dirX(1.0), dirY(0.0), obstacle(-1), r(0), g(0), b(1) {}
-Ring::Ring(float* angleParams) : angle(angleParams[0]), dirX(angleParams[1]), dirY(angleParams[2]), obstacle(-1), r(0), g(0), b(1) {}
-Ring::Ring(float* angleParams, float* c) : angle(angleParams[0]), dirX(angleParams[1]), dirY(angleParams[2]), obstacle(-1), r(c[0]), g(c[1]), b(c[2]) {}
+Ring::Ring() : angle(0.0), dirX(1.0), dirY(0.0), obstacle(-1), r(0), g(0), b(1), alpha(1) {}
+Ring::Ring(float* angleParams) : angle(angleParams[0]), dirX(angleParams[1]), dirY(angleParams[2]), obstacle(-1), r(0), g(0), b(1), alpha(1) {}
+Ring::Ring(float* angleParams, float* c) : angle(angleParams[0]), dirX(angleParams[1]), dirY(angleParams[2]), obstacle(-1), r(c[0]), g(c[1]), b(c[2]), alpha(c[3]) {}
 
 Ring::~Ring() {}
 
 void Ring::draw()
 {
-	float ringColor[] = { r, g, b, 0.2 };
+	float ringColor[] = { r, g, b, alpha };
 	float obstacleColor[] = {1.0, 0.0, 0.0, 0.6};
 	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, ringColor);
 	glCallList(ringListId);

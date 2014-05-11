@@ -65,7 +65,7 @@ BitMapFile *getBMPData(string filename)
 
 	// Reverse color from bgr to rgb.
 	int temp;
-	for (int i = 0; i < size; i += 3)
+	for (GLuint i = 0; i < size; i += 3)
 	{
 		temp = bmp->data[i];
 		bmp->data[i] = bmp->data[i + 2];
