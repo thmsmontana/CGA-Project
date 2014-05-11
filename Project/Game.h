@@ -16,9 +16,12 @@ public:
 	void update();
 	void loadExternalTextures();
 	int getScore();
+	int getHP();
+
 private:
 	void handleCollision();
 	int score;
+	int hp;
 	int age;
 	float position;
 	bool playing;
@@ -34,6 +37,7 @@ void setupLists();
 #define POSITION_INCREMENT 2
 #define SHIP_ANGULAR_WIDTH 360/TUNNEL_SIDES
 #define INVUL_TIME 1000
+#define MAX_HP 3
 
 #define FOVY 60
 #define ASPECT 1
@@ -41,4 +45,4 @@ void setupLists();
 #define ZFAR 500
 
 #define PATH_BACKGROUND "textures/stars.bmp"
-#define PATH_LIFE_POINTS "textures/heart.bmp"
+#define PATH_HEALTH_POINTS "textures/heart.bmp"
