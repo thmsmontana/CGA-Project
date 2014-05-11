@@ -27,11 +27,18 @@
 
 using namespace std;
 
+
+
+
+
+
 static float Xangle = 0.0, Yangle = 0.0, Zangle = 0.0; // Angles to rotate hemisphere.
 static bool isAnimate = false;
 static float animationPeriod = 10;
 static bool rightPressed = false;
 static bool leftPressed = false;
+
+
 Game game;
 
 
@@ -44,7 +51,7 @@ void lighting(void)
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
 
-	GLfloat lightpos[] = {0.0, 1.0, 1.5, 1.0};
+	GLfloat lightpos[] = { 0.0, 1.0, 1.5, 1.0 };
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
 	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.003);
 
@@ -56,16 +63,15 @@ void lighting(void)
 }
 
 
-
 // Drawing routine.
 void drawScene(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
 	glLoadIdentity();
-	glRotatef(10.0, -1.0, 0.0, 0.0);
+
+	//glRotatef(10.0, -1.0, 0.0, 0.0);
 	glTranslatef(0.0, 2.0, -1.0);
 
 	glRotatef(Zangle, 0.0, 0.0, 1.0);
@@ -85,8 +91,11 @@ void setup(void)
 {
 	glEnable(GL_DEPTH_TEST); // Enable depth testing.
 
+	
+
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	game = Game();
+
 }
 
 // Timer function.
@@ -111,7 +120,7 @@ void resize(int w, int h)
 	glViewport(0, 0, (GLsizei)w, (GLsizei)w);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(60.0, 1.0, 1.0, 500.0);
+	gluPerspective(FOVY, ASPECT, ZNEAR, ZFAR);
 	glMatrixMode(GL_MODELVIEW);
 }
 

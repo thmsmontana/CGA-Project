@@ -14,6 +14,7 @@ public:
 	void left();
 	void right();
 	void update();
+	void loadExternalTextures();
 	int getScore();
 private:
 	void handleCollision();
@@ -33,3 +34,10 @@ void setupLists();
 #define POSITION_INCREMENT 2
 #define SHIP_ANGULAR_WIDTH 360/TUNNEL_SIDES
 #define INVUL_TIME 1000
+
+#define FOVY 60
+#define ASPECT 1
+#define ZNEAR 1 //Do not touch
+#define ZFAR 500
+
+#define PATH_BACKGROUND "textures/stars.bmp"
