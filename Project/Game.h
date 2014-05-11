@@ -41,3 +41,4 @@ void setupLists();
 #define ZFAR 500
 
 #define PATH_BACKGROUND "textures/stars.bmp"
+#define PATH_LIFE_POINTS "textures/heart.bmp"
