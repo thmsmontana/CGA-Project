@@ -99,7 +99,7 @@ void Tunnel::pushRing()
 	if (angle > 360.0) angle -= 360.0;
 	color.s = 1.0;
 	color.v = 1.0;
-	float alpha = 0.7;
+	float alpha = 0.6;
 	rgb rgbcolor = hsv2rgb(color);
 	float ringColor[] = {rgbcolor.r, rgbcolor.g, rgbcolor.b, alpha};
 	Ring *r = new Ring(angleParams(), ringColor);
@@ -170,7 +170,7 @@ Ring::~Ring() {}
 void Ring::draw()
 {
 	float ringColor[] = { r, g, b, alpha };
-	float obstacleColor[] = {1.0, 0.0, 0.0, 0.6};
+	float obstacleColor[] = {1.0, 0.0, 0.0, 1.0};
 	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, ringColor);
 	glCallList(ringListId);
 	if (obstacle != -1) {
