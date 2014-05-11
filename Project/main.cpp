@@ -190,7 +190,7 @@ int main(int argc, char **argv)
 	glutKeyboardUpFunc(playerInputup);
 	glutTimerFunc(animationPeriod, animate, 1);
 
-	PlaySound(TEXT("music.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
+	//PlaySound(TEXT("music.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
 
 	glutMainLoop();
 

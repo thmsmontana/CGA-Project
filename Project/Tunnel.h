@@ -28,13 +28,13 @@ public:
 	virtual ~Tunnel();
 	void draw(int c);
 	bool hasObstacleAtPosition(float position);
+	float obstacle_proba;
 private:
 	void drawRec(float offset, list<Ring *>::iterator *it);
 	void pushRing();
 	float offset;
 	std::list <Ring *> rings;
 	float prevOffset;
-	float obstacle_proba;
 	float *angleParams();
 	float t;
 };

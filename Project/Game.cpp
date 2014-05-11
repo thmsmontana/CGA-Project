@@ -21,6 +21,132 @@ using namespace std;
 
 static unsigned int base; // Displays the lists base index.
 
+
+
+Game::Game()
+{
+	age = 0;
+	score = 0;
+	playing = false;
+	tunnel = Tunnel(OBSTACLE_PROBABILITY);
+	car = Car();
+	previous_draw = 0;
+	position = 0.0;
+	setupLists();
+	invul = 0;
+	hp = MAX_HP;
+
+	loadExternalTextures();
+}
+
+
+Game::~Game()
+{
+}
+
+void Game::update()
+{
+	if (playing)
+		if (previous_draw != 0)
+		{
+			age += clock() - previous_draw;
+			score = age / 100;
+			
+			if (invul <= 0)
+				invul = 0;
+			else
+				invul -= clock() - previous_draw;
+
+		}
+			
+
+	if (tunnel.hasObstacleAtPosition(position) && invul == 0) 
+		handleCollision();
+}
+
+int Game::getHP()
+{
+	return hp;
+}
+
+void Game::handleCollision() 
+{
+	invul = INVUL_TIME;
+
+	PlaySound(TEXT("collision.wav"), NULL, SND_ASYNC | SND_APPLICATION);
+	hp--;
+	if (hp == 0)
+	{
+		playing = false;
+		cout << "You have lost. Score: " << score << endl;
+		cout << "To play again, press the spacebar." << endl;
+	}
+}
+
+
+
+void Game::draw()
+{
+	drawHealthPoints(getHP());
+	glPushMatrix();
+	glRotatef(position + 90, 0.0, 0.0, - 1.0);
+
+	drawBackground();
+
+	tunnel.draw(age);
+	glPopMatrix();
+
+	//car.draw();
+
+	previous_draw = clock();
+}
+
+
+void Game::playPause()
+{
+	playing = !playing;
+	if (hp == 0) {
+		hp = MAX_HP;
+	}
+}
+
+
+void Game::right()
+{
+	position += POSITION_INCREMENT;
+	if (position >= 360.0) position -= 360.0;
+}
+
+
+void Game::left()
+{
+	position -= POSITION_INCREMENT;
+	if (position < 0.0) position += 360.0;
+}
+
+
+
+int Game::getScore()
+{
+	return score;
+}
+
+
+void setupLists()
+{
+	setupTunnelLists();
+	setupShipList();
+}
+
+
+
+
+
+
+
+
+
+
 static unsigned int texture[2]; // Array of texture indices.
 
 
@@ -133,6 +259,7 @@ void Game::loadExternalTextures()
 
 
 
+
 void drawBackground()
 {
 
@@ -142,7 +269,7 @@ void drawBackground()
 	// Map the texture onto a square polygon.
 	float ymax = (ZFAR * tan(FOVY)) * 2;
 	float diag = ymax * sqrt(2);
-	ymax = diag ;
+	ymax = diag;
 	float xmax = ymax;
 
 	// Turn on OpenGL texturing.
@@ -167,10 +294,10 @@ void drawHealthPoints(int hp)
 	// Map the texture onto a square polygon.
 	float ymax = (ZNEAR * tan(FOVY)) * 2;
 	float diag = ymax * sqrt(2);
-	ymax = diag/8;
+	ymax = diag / 8;
 	float xmax = ymax;
 
-	
+
 
 	// Turn on OpenGL texturing.
 	glEnable(GL_TEXTURE_2D);
@@ -197,119 +324,5 @@ void drawHealthPoints(int hp)
 
 	glDisable(GL_TEXTURE_2D);
 
-	
-}
 
-Game::Game()
-{
-	age = 0;
-	score = 0;
-	playing = false;
-	tunnel = Tunnel(OBSTACLE_PROBABILITY);
-	car = Car();
-	previous_draw = 0;
-	position = 0.0;
-	setupLists();
-	invul = 0;
-	hp = MAX_HP;
-
-	loadExternalTextures();
-}
-
-
-Game::~Game()
-{
-}
-
-void Game::update()
-{
-	if (playing)
-		if (previous_draw != 0)
-		{
-			age += clock() - previous_draw;
-			score = age / 100;
-			if (invul <= 0)
-				invul = 0;
-			else
-				invul -= clock() - previous_draw;
-
-		}
-			
-
-	if (tunnel.hasObstacleAtPosition(position) && invul == 0) 
-		handleCollision();
-}
-
-int Game::getHP()
-{
-	return hp;
-}
-
-void Game::handleCollision() 
-{
-	invul = INVUL_TIME;
-
-	//PlaySound(TEXT(collision.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
-	hp--;
-	if (hp == 0)
-	{
-		playing = false;
-		cout << "You have lost. Score: " << score << endl;
-		cout << "To play again, press the spacebar." << endl;
-	}
-}
-
-
-
-void Game::draw()
-{
-	drawHealthPoints(getHP());
-	glPushMatrix();
-	glRotatef(position + 90, 0.0, 0.0, - 1.0);
-
-	drawBackground();
-
-	tunnel.draw(age);
-	glPopMatrix();
-
-	//car.draw();
-
-	previous_draw = clock();
-}
-
-
-void Game::playPause()
-{
-	playing = !playing;
-	if (hp == 0) {
-		hp = MAX_HP;
-	}
-}
-
-
-void Game::right()
-{
-	position += POSITION_INCREMENT;
-	if (position >= 360.0) position -= 360.0;
-}
-
-
-void Game::left()
-{
-	position -= POSITION_INCREMENT;
-	if (position < 0.0) position += 360.0;
-}
-
-
-
-int Game::getScore()
-{
-	return score;
-}
-
-
-void setupLists()
-{
-	setupTunnelLists();
-	setupShipList();
 }

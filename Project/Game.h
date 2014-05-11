@@ -32,6 +32,8 @@ private:
 };
 
 void setupLists();
+void drawBackground();
+void drawHealthPoints(int);
 
 #define OBSTACLE_PROBABILITY 0.5
 #define POSITION_INCREMENT 5
