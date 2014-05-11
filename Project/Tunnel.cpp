@@ -15,6 +15,7 @@
 #include "Tunnel.h"
 #include "rgb_hsv.h"
 #include "Game.h"
+#include "imageloader.h"
 
 #define PI 3.14159265358979324
 
@@ -23,6 +24,41 @@ using namespace std;
 
 static unsigned int ringListId, obstacleListId;
 static int angle = 0.0;
+
+GLuint loadTexture(Image* image) {
+
+	GLuint textureId;
+
+	glGenTextures(1, &textureId); //Make room for our texture
+
+	glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
+
+	//Map the image to the texture
+
+	glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+
+		0,                            //0 for now
+
+		GL_RGB,                       //Format OpenGL uses for image
+
+		image->width, image->height,  //Width and height
+
+		0,                            //The border of the image
+
+		GL_RGB, //GL_RGB, because pixels are stored in RGB format
+
+		GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+
+		//as unsigned numbers
+
+		image->pixels);               //The actual pixel data
+
+	return textureId; //Returns the id of the texture
+
+}
+
+GLUquadric *quad;
+GLuint _textureId; //The id of the textur
 
 
 Tunnel::Tunnel() : offset(0.0), prevOffset(0.0), obstacle_proba(0.0), t(0.0)
@@ -34,12 +70,22 @@ Tunnel::Tunnel() : offset(0.0), prevOffset(0.0), obstacle_proba(0.0), t(0.0)
 	}
 }
 
+void initTunnel()
+{
+	quad = gluNewQuadric();
+	Image* image = loadBMP("textures/moon.bmp");
+
+	_textureId = loadTexture(image);
+}
+
 Tunnel::Tunnel(float obstacle_probability) :offset(0.0), prevOffset(0.0), obstacle_proba(obstacle_probability), t(0.0) {
 	int i;
 	for (i = 0; i < MAX_RINGS; ++i)
 	{
 		pushRing();
 	}
+
+	initTunnel();
 }
 Tunnel::~Tunnel()
 {
@@ -53,7 +99,7 @@ void Tunnel::pushRing()
 	if (angle > 360.0) angle -= 360.0;
 	color.s = 1.0;
 	color.v = 1.0;
-	float alpha = 0.4;
+	float alpha = 0.7;
 	rgb rgbcolor = hsv2rgb(color);
 	float ringColor[] = {rgbcolor.r, rgbcolor.g, rgbcolor.b, alpha};
 	Ring *r = new Ring(angleParams(), ringColor);
@@ -129,7 +175,7 @@ void Ring::draw()
 	glCallList(ringListId);
 	if (obstacle != -1) {
 		glPushMatrix();
-		glRotatef(obstacle * 360.0 / TUNNEL_SIDES, 0.0, 0.0, 1.0);
+		glRotatef((obstacle+0.5) * OBSTACLE_ANGULAR_WIDTH , 0.0, 0.0, 1.0);
 		glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, obstacleColor);
 		glCallList(obstacleListId);
 
@@ -191,13 +237,19 @@ void makeRingList(unsigned int id)
 	glEndList();
 }
 
+
+
 void makeObstacleList(unsigned int id)
 {
 	obstacleListId = id;
 	glNewList(id, GL_COMPILE);
+
+	float angle = 2 * PI / TUNNEL_SIDES;
+
+	/*
 	float *coords = (float *)malloc(sizeof(float)* (3 * 8));
 	float *coords_start = coords;
-	float angle = 2 * PI / TUNNEL_SIDES;
+	
 	//1
 	*(coords++) = RADIUS;
 	*(coords++) = 0;
@@ -235,7 +287,25 @@ void makeObstacleList(unsigned int id)
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, coords_start);
-	glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_INT, indices);
+	glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_INT, indices);*/
+
+	glEnable(GL_TEXTURE_2D);
+
+	glBindTexture(GL_TEXTURE_2D, _textureId);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	gluQuadricTexture(quad, 1);
+
+	float movX = RADIUS * COEF_OBSTACLE;
+	float rad = RADIUS * COEF_OBSTACLE / 4;
+	glTranslatef(movX, 0.0, 0.0);
+	gluSphere(quad, rad , 20, 20);
+	glTranslatef(-movX, 0.0, 0.0);
+	glDisable(GL_TEXTURE_2D);
+
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glEndList();
 }
