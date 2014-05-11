@@ -108,13 +108,14 @@ Ring::~Ring() {}
 
 void Ring::draw()
 {
-	glColor4f(r, g, b, 1.0);
+	float ringColor[] = { r, g, b, 1.0 };
+	float obstacleColor[] = {1.0, 0.0, 0.0, 1.0};
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, ringColor);
 	glCallList(ringListId);
 	if (obstacle != -1) {
 		glPushMatrix();
 		glRotatef(obstacle * 360.0 / TUNNEL_SIDES, 0.0, 0.0, 1.0);
-		float emission[] = { 1.0, 0.0, 0.0, 1.0 };
-		glColor4fv(emission);
+		glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, obstacleColor);
 		glCallList(obstacleListId);
 
 		glPopMatrix();
@@ -145,6 +146,7 @@ void makeRingList(unsigned int id)
 	float t = 0; // Angle parameter.
 	int i;
 
+
 	float *coords = (float *)malloc(sizeof(float)* (6 * (TUNNEL_SIDES + 1)));
 	float *coords_start = coords;
 
@@ -156,7 +158,7 @@ void makeRingList(unsigned int id)
 
 		*(coords++) = RADIUS * cos(t);
 		*(coords++) = RADIUS * sin(t);
-		*(coords++) = -SECTION_WIDTH * 0.05;
+		*(coords++) = -SECTION_WIDTH * 1.05;
 		t += 2 * PI / TUNNEL_SIDES;
 	}
 	*(coords++) = RADIUS;
@@ -164,7 +166,7 @@ void makeRingList(unsigned int id)
 	*(coords++) = 0;
 	*(coords++) = RADIUS;
 	*(coords++) = 0;
-	*(coords++) = -SECTION_WIDTH * 0.05;
+	*(coords++) = -SECTION_WIDTH * 1.05;
 
 
 	glEnableClientState(GL_VERTEX_ARRAY);
@@ -249,12 +251,12 @@ bool Tunnel::hasObstacleAtPosition(float p)
 	if (leftBoundaryShip >= leftBoundaryObstacle && leftBoundaryShip <= rightBoundaryObstacle)
 		return true;
 
-		
+
 
 	if (rightBoundaryShip >= leftBoundaryObstacle && leftBoundaryShip <= rightBoundaryObstacle)
 		return true;
 
-		
+
 	return false;
 
 	

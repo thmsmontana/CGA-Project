@@ -27,7 +27,6 @@
 
 using namespace std;
 
-static float Xangle = 0.0, Yangle = 0.0, Zangle = 0.0; // Angles to rotate hemisphere.
 static bool isAnimate = false;
 static float animationPeriod = 10;
 static bool rightPressed = false;
@@ -48,10 +47,6 @@ void lighting(void)
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
 	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.003);
 
-	//glColorMaterial(GL_FRONT_AND_BACK, GL_DIFFUSE);
-	glColorMaterial(GL_FRONT, GL_DIFFUSE);
-	glEnable(GL_COLOR_MATERIAL);
-	//glEnable(GL_SMOOTH);
 	glEnable(GL_LIGHT0);
 }
 
@@ -67,10 +62,6 @@ void drawScene(void)
 	glLoadIdentity();
 	glRotatef(10.0, -1.0, 0.0, 0.0);
 	glTranslatef(0.0, 2.0, -1.0);
-
-	glRotatef(Zangle, 0.0, 0.0, 1.0);
-	glRotatef(Yangle, 0.0, 1.0, 0.0);
-	glRotatef(Xangle, 1.0, 0.0, 0.0);
 
 	lighting();
 
@@ -133,36 +124,6 @@ void keyInput(unsigned char key, int x, int y)
 	case 'q':
 		glutPostRedisplay();
 		leftPressed = true;
-		break;
-	case 'x':
-		Xangle += 5.0;
-		if (Xangle > 360.0) Xangle -= 360.0;
-		glutPostRedisplay();
-		break;
-	case 'X':
-		Xangle -= 5.0;
-		if (Xangle < 0.0) Xangle += 360.0;
-		glutPostRedisplay();
-		break;
-	case 'y':
-		Yangle += 5.0;
-		if (Yangle > 360.0) Yangle -= 360.0;
-		glutPostRedisplay();
-		break;
-	case 'Y':
-		Yangle -= 5.0;
-		if (Yangle < 0.0) Yangle += 360.0;
-		glutPostRedisplay();
-		break;
-	case 'z':
-		Zangle += 5.0;
-		if (Zangle > 360.0) Zangle -= 360.0;
-		glutPostRedisplay();
-		break;
-	case 'Z':
-		Zangle -= 5.0;
-		if (Zangle < 0.0) Zangle += 360.0;
-		glutPostRedisplay();
 		break;
 	case ' ':
 		game.playPause();
