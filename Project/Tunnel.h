@@ -16,7 +16,7 @@ public:
 	float dirX, dirY;
 private:
 	int obstacle;
-	float r, g, b;
+	float r, g, b, alpha;
 };
 
 #pragma once

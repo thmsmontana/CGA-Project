@@ -25,6 +25,7 @@
 
 #include "Game.h"
 
+
 using namespace std;
 
 
@@ -32,7 +33,6 @@ static bool isAnimate = false;
 static float animationPeriod = 10;
 static bool rightPressed = false;
 static bool leftPressed = false;
-
 
 Game game;
 
@@ -69,6 +69,7 @@ void drawScene(void)
 
 	game.draw();
 
+
 	glutSwapBuffers();
 
 }
@@ -82,10 +83,10 @@ void setup(void)
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	
+	glShadeModel(GL_SMOOTH);
 
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	game = Game();
-
 }
 
 // Timer function.
@@ -178,7 +179,7 @@ int main(int argc, char **argv)
 {
 	printInteraction();
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(800, 800);
 	glutInitWindowPosition(50, 50);
 	glutCreateWindow("Game");
@@ -189,7 +190,7 @@ int main(int argc, char **argv)
 	glutKeyboardUpFunc(playerInputup);
 	glutTimerFunc(animationPeriod, animate, 1);
 
-	//PlaySound(TEXT("music.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
+	PlaySound(TEXT("music.wav"), NULL, SND_ASYNC | SND_APPLICATION | SND_LOOP);
 
 	glutMainLoop();
 
