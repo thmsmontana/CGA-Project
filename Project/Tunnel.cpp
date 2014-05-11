@@ -302,6 +302,7 @@ void makeObstacleList(unsigned int id)
 	float movX = RADIUS * COEF_OBSTACLE;
 	float rad = RADIUS * COEF_OBSTACLE / 4;
 	glTranslatef(movX, 0.0, 0.0);
+	glRotatef(90.0, 1.0, 0.0, 0.0);
 	gluSphere(quad, rad , 20, 20);
 	glTranslatef(-movX, 0.0, 0.0);
 	glDisable(GL_TEXTURE_2D);
