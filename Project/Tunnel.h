@@ -48,7 +48,7 @@ void makeObstacleList(unsigned int listId);
 #define SECTION_WIDTH 2.0
 #define RADIUS 3.0
 #define MAX_RINGS 250
-#define ALPHA_RING 0.7
+#define ALPHA_RING 0.8
 #define SPEED 30
 #define COEF_OBSTACLE 0.7
 #define OBSTACLE_ANGULAR_WIDTH 360/TUNNEL_SIDES

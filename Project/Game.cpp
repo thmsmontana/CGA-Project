@@ -3,6 +3,7 @@
 #include <time.h>
 #include <windows.h>
 #include <fstream>
+#include "glm.h"
 
 #ifdef __APPLE__
 #  include <GLUT/glut.h>
@@ -11,7 +12,8 @@
 #endif
 
 #include "Game.h"
-#include "Car.h"
+
+
 
 
 
@@ -21,6 +23,7 @@ using namespace std;
 
 static unsigned int base; // Displays the lists base index.
 
+GLMmodel* f16;
 
 
 Game::Game()
@@ -37,6 +40,15 @@ Game::Game()
 	hp = MAX_HP;
 
 	loadExternalTextures();
+
+
+	f16 = NULL;
+	f16 = glmReadOBJ("f16.obj");
+	if (!f16) exit(0);
+
+	glmUnitize(f16);
+	glmFacetNormals(f16);
+	glmVertexNormals(f16, 90.0);
 }
 
 
@@ -83,11 +95,28 @@ void Game::handleCollision()
 	}
 }
 
+void drawShip()
+{
+
+	float movY = RADIUS-0.3 ;
+	float movZ = 3.5;
+
+	glTranslatef(0.0, -movY, -movZ);
+	glRotatef(180, 0.0, 1.0, 0.0);
+	glmDraw(f16, GLM_SMOOTH);
+	glRotatef(-180, 0.0, 1.0, 0.0);
+	glTranslatef(0.0, movY, movZ);
+
+}
+
 
 
 void Game::draw()
 {
 	drawHealthPoints(getHP());
+
+	
+	
 	glPushMatrix();
 	glRotatef(position + 90, 0.0, 0.0, - 1.0);
 
@@ -97,6 +126,9 @@ void Game::draw()
 	glPopMatrix();
 
 	//car.draw();
+
+	drawShip();
+
 
 	previous_draw = clock();
 }

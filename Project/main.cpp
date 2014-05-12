@@ -43,8 +43,11 @@ void lighting(void)
 	glEnable(GL_LIGHTING);
 	float ambient_light[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 	float diffuse_light[] = { 1.0f, 1.0f, 1.0f, 0.0f };
+	float diffuse_light_ship[] = { 0.8f, 0.8f, 0.8f, 1.0f };
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient_light);
+
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse_light);
 
 	GLfloat lightpos[] = { 0.0, 1.0, 1.5, 1.0 };
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
